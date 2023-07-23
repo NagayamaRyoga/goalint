@@ -1,15 +1,9 @@
 package lint
 
-import (
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-)
+var Configurator ConfiguratorFunc
 
-type Config = config.Config
-
-var cfg = config.NewConfig()
-
-func Configure(f func(c *Config)) struct{} {
-	f(cfg)
+func Configure(f ConfiguratorFunc) struct{} {
+	Configurator = f
 
 	return struct{}{}
 }

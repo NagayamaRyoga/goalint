@@ -11,7 +11,6 @@ replace (
 
 require (
 	github.com/NagayamaRyoga/goa-lint-plugin v0.0.0-00010101000000-000000000000
-	github.com/gorilla/websocket v1.5.0
 	goa.design/goa/v3 v3.12.1
 	google.golang.org/grpc v1.56.1
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
@@ -24,6 +23,7 @@ require (
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/manveru/faker v0.0.0-20171103152722-9fbc68a78c4d // indirect

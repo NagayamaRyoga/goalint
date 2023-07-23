@@ -47,7 +47,7 @@ func (r *Rule) walkType(t expr.UserType) error {
 	if !r.caser.Check(t.Name()) {
 		kind := kind.DSLName(t.Kind())
 
-		return fmt.Errorf("goa-lint[%s]: %s names should be %s (%#v) in %s(%#v)", r.Name(), kind, r.cfg.WordCase, r.caser.To(t.Name()), kind, t.ID())
+		return fmt.Errorf("goa-lint[%s]: %s name %q should be %s (%q) in %s(%q)", r.Name(), kind, t.Name(), r.cfg.WordCase, r.caser.To(t.Name()), kind, t.ID())
 	}
 
 	return nil

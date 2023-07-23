@@ -14,6 +14,8 @@ EXAMPLES := \
 	upload_download \
 	# -- end
 
+GEN_TARGETS := ${EXAMPLES:%=gen-%}
+
 GOOS = $(shell go env GOOS)
 EXE =
 
@@ -26,8 +28,16 @@ all: ${EXAMPLES}
 
 .PHONY: ${EXAMPLES}
 ${EXAMPLES}: deps
-	@echo "generate $@..."
-	@PATH="${PWD}/bin:$${PATH}" go run goa.design/goa/v3/cmd/goa gen goa.design/examples/$@/design -o $@
+	@echo "run $@..."
+	@go run ../cmd/goalint goa.design/examples/$@/design
+
+.PHONY: gen
+gen: ${GEN_TARGETS}
+
+.PHONY: ${GEN_TARGETS}
+${GEN_TARGETS}: deps
+	@echo "generate ${@:gen-%=%}..."
+	@PATH="${PWD}/bin:$${PATH}" go run goa.design/goa/v3/cmd/goa gen goa.design/examples/${@:gen-%=%}/design -o ${@:gen-%=%}
 
 .PHONY: deps
 deps: protoc

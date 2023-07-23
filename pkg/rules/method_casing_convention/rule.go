@@ -45,7 +45,7 @@ func (r *Rule) Apply(roots []eval.Root) error {
 func (r *Rule) walkExpr(e eval.Expression) error {
 	if e, ok := e.(*expr.MethodExpr); ok {
 		if !r.caser.Check(e.Name) {
-			return fmt.Errorf("goa-lint[%s]: Method names should be %s (%#v) in %s", r.Name(), r.cfg.WordCase, r.caser.To(e.Name), e.EvalName())
+			return fmt.Errorf("goa-lint[%s]: Method name %q should be %s (%q) in %s", r.Name(), e.Name, r.cfg.WordCase, r.caser.To(e.Name), e.EvalName())
 		}
 	}
 

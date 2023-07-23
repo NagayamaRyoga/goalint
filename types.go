@@ -2,6 +2,7 @@ package lint
 
 import (
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/casing"
+	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
 )
 
 type WordCase = casing.WordCase
@@ -18,3 +19,6 @@ const (
 )
 
 type Initialisms = casing.Initialisms
+
+type Config = config.Config
+type ConfiguratorFunc func(*Config)

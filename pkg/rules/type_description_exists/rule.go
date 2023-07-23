@@ -44,7 +44,7 @@ func (r *Rule) walkType(t expr.UserType) error {
 	if len(t.Attribute().Description) == 0 {
 		kind := kind.DSLName(t.Kind())
 
-		return fmt.Errorf("goa-lint[%s]: %s should have non-empty description in %s(%#v)", r.Name(), kind, kind, t.ID())
+		return fmt.Errorf("goa-lint[%s]: %s should have non-empty description in %s(%q)", r.Name(), kind, kind, t.ID())
 	}
 
 	return nil

@@ -1,5 +1,9 @@
 .PHONY: all
-all:
+all: build
+
+.PHONY: build
+build:
+	go build -o goalint ./cmd/goalint
 
 .PHONY: test
 test:
