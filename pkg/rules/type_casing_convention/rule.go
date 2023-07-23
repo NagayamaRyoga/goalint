@@ -1,10 +1,11 @@
-package method_casing_convention
+package type_casing_convention
 
 import (
 	"fmt"
 	"log"
 
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/casing"
+	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/kind"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/walk"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules"
@@ -16,12 +17,12 @@ var _ rules.Rule = (*Rule)(nil)
 
 type Rule struct {
 	logger *log.Logger
-	cfg    *config.MethodCasingConventionConfig
+	cfg    *config.TypeCasingConventionConfig
 	caser  *casing.Caser
 }
 
 func NewRule(logger *log.Logger, c *config.Config) rules.Rule {
-	cfg := c.MethodCasingConvention
+	cfg := c.TypeCasingConvention
 
 	return &Rule{
 		logger: logger,
@@ -31,7 +32,7 @@ func NewRule(logger *log.Logger, c *config.Config) rules.Rule {
 }
 
 func (r *Rule) Name() string {
-	return "MethodCasingConvention"
+	return "TypeCasingConvention"
 }
 
 func (r *Rule) IsDisabled() bool {
@@ -39,14 +40,14 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) error {
-	return walk.Expression(roots, r.walkExpr)
+	return walk.Type(roots, r.walkType)
 }
 
-func (r *Rule) walkExpr(e eval.Expression) error {
-	if e, ok := e.(*expr.MethodExpr); ok {
-		if !r.caser.Check(e.Name) {
-			return fmt.Errorf("goa-lint[%s]: Method names should be %s (%#v) in %s", r.Name(), r.cfg.WordCase, r.caser.To(e.Name), e.EvalName())
-		}
+func (r *Rule) walkType(t expr.UserType) error {
+	if !r.caser.Check(t.Name()) {
+		kind := kind.DSLName(t.Kind())
+
+		return fmt.Errorf("goa-lint[%s]: %s names should be %s (%#v) in %[2]s(%#v)", r.Name(), kind, r.cfg.WordCase, r.caser.To(t.Name()), t.Name())
 	}
 
 	return nil

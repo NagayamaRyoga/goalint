@@ -20,31 +20,50 @@ const (
 	GoKebabCase  WordCase = "go-kebab-case"
 )
 
-func To(s string, c WordCase) string {
-	switch c {
-	case CamelCase:
-		return strcase.ToCamel(s)
-	case PascalCase:
-		return strcase.ToPascal(s)
-	case SnakeCase:
-		return strcase.ToSnake(s)
-	case KebabCase:
-		return strcase.ToKebab(s)
-	case GoCamelCase:
-		return strcase.ToGoCamel(s)
-	case GoPascalCase:
-		return strcase.ToGoPascal(s)
-	case GoSnakeCase:
-		return strcase.ToGoSnake(s)
-	case GoKebabCase:
-		return strcase.ToGoKebab(s)
+type Initialisms []string
+
+type Caser struct {
+	impl     *strcase.Caser
+	wordCase WordCase
+}
+
+func NewCaser(wordCase WordCase, initialisms Initialisms) *Caser {
+	var goInitialisms bool
+	switch wordCase {
+	case CamelCase, PascalCase, SnakeCase, KebabCase:
+		goInitialisms = false
+	case GoCamelCase, GoPascalCase, GoSnakeCase, GoKebabCase:
+		goInitialisms = true
+	}
+
+	initialismOverrides := make(map[string]bool, len(initialisms))
+	for _, ini := range initialisms {
+		initialismOverrides[ini] = true
+	}
+
+	return &Caser{
+		impl:     strcase.NewCaser(goInitialisms, initialismOverrides, nil),
+		wordCase: wordCase,
+	}
+}
+
+func (c *Caser) To(s string) string {
+	switch c.wordCase {
+	case CamelCase, GoCamelCase:
+		return c.impl.ToCamel(s)
+	case PascalCase, GoPascalCase:
+		return c.impl.ToPascal(s)
+	case SnakeCase, GoSnakeCase:
+		return c.impl.ToSnake(s)
+	case KebabCase, GoKebabCase:
+		return c.impl.ToKebab(s)
 	default:
-		fmt.Fprintf(os.Stderr, "unknown word case: %s\n", c)
+		fmt.Fprintf(os.Stderr, "unknown word case: %s\n", c.wordCase)
 
 		return ""
 	}
 }
 
-func Check(s string, c WordCase) bool {
-	return To(s, c) == s
+func (c *Caser) Check(s string) bool {
+	return c.To(s) == s
 }

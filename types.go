@@ -16,3 +16,5 @@ const (
 	GoSnakeCase  = casing.GoSnakeCase
 	GoKebabCase  = casing.GoKebabCase
 )
+
+type Initialisms = casing.Initialisms

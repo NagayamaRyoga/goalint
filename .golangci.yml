@@ -5,14 +5,17 @@ linters:
     - depguard
     - gochecknoinits
     - gochecknoglobals
+    - gocognit
     - gomoddirectives
     - interfacebloat
     - ireturn
     - lll
+    - nestif
     - revive
     - stylecheck
     - varnamelen
     - wrapcheck
+    - wsl
     # Deprecated linters
     - deadcode
     - exhaustivestruct

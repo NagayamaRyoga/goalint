@@ -7,14 +7,25 @@ import (
 )
 
 type Config struct {
-	Debug bool
+	Disabled bool
+	Debug    bool
 
 	MethodCasingConvention *MethodCasingConventionConfig
+	TypeCasingConvention   *TypeCasingConventionConfig
+}
+
+type caseConfig struct {
+	Disabled    bool
+	WordCase    casing.WordCase
+	Initialisms casing.Initialisms
 }
 
 type MethodCasingConventionConfig struct {
-	Enabled  bool
-	WordCase casing.WordCase
+	caseConfig
+}
+
+type TypeCasingConventionConfig struct {
+	caseConfig
 }
 
 func NewConfig() *Config {
@@ -24,10 +35,21 @@ func NewConfig() *Config {
 	}
 
 	return &Config{
-		Debug: debug,
+		Disabled: false,
+		Debug:    debug,
 		MethodCasingConvention: &MethodCasingConventionConfig{
-			Enabled:  true,
-			WordCase: casing.SnakeCase,
+			caseConfig: caseConfig{
+				Disabled:    false,
+				WordCase:    casing.SnakeCase,
+				Initialisms: nil,
+			},
+		},
+		TypeCasingConvention: &TypeCasingConventionConfig{
+			caseConfig: caseConfig{
+				Disabled:    false,
+				WordCase:    casing.GoPascalCase,
+				Initialisms: nil,
+			},
 		},
 	}
 }

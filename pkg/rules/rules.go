@@ -11,6 +11,6 @@ type NewRule func(logger *log.Logger, cfg *config.Config) Rule
 
 type Rule interface {
 	Name() string
-	IsEnabled() bool
+	IsDisabled() bool
 	Apply(roots []eval.Root) error
 }

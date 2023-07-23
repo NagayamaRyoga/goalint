@@ -27,7 +27,7 @@ all: ${EXAMPLES}
 .PHONY: ${EXAMPLES}
 ${EXAMPLES}: deps
 	@echo "generate $@..."
-	@PATH="${PWD}/bin:$${PATH}" go run goa.design/goa/v3/cmd/goa gen goa.design/examples/$@/design -o $@ >/dev/null
+	@PATH="${PWD}/bin:$${PATH}" go run goa.design/goa/v3/cmd/goa gen goa.design/examples/$@/design -o $@ | grep -vE '^$@/gen/'
 
 .PHONY: deps
 deps: protoc
