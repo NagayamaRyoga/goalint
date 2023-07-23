@@ -1,13 +1,16 @@
 package rules
 
 import (
+	"log"
+
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
 	"goa.design/goa/v3/eval"
 )
 
+type NewRule func(logger *log.Logger, cfg *config.Config) Rule
+
 type Rule interface {
 	Name() string
-	Apply(c *config.Config, roots []eval.Root) error
+	IsEnabled() bool
+	Apply(roots []eval.Root) error
 }
-
-var Rules = []Rule{}
