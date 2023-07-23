@@ -6,4 +6,5 @@ import (
 
 var _ = lint.Configure(func(c *lint.Config) {
 	// ...
+	c.TypeDescriptionExists.Disabled = true
 })

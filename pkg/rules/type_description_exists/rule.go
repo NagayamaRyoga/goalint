@@ -1,10 +1,9 @@
-package type_casing_convention
+package type_description_exists
 
 import (
 	"fmt"
 	"log"
 
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/casing"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/kind"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/walk"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
@@ -17,22 +16,20 @@ var _ rules.Rule = (*Rule)(nil)
 
 type Rule struct {
 	logger *log.Logger
-	cfg    *config.TypeCasingConvention
-	caser  *casing.Caser
+	cfg    *config.TypeDescriptionExists
 }
 
 func NewRule(logger *log.Logger, c *config.Config) rules.Rule {
-	cfg := c.TypeCasingConvention
+	cfg := c.TypeDescriptionExists
 
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,
-		caser:  casing.NewCaser(cfg.WordCase, cfg.Initialisms),
 	}
 }
 
 func (r *Rule) Name() string {
-	return "TypeCasingConvention"
+	return "TypeDescriptionExists"
 }
 
 func (r *Rule) IsDisabled() bool {
@@ -44,10 +41,10 @@ func (r *Rule) Apply(roots []eval.Root) error {
 }
 
 func (r *Rule) walkType(t expr.UserType) error {
-	if !r.caser.Check(t.Name()) {
+	if len(t.Attribute().Description) == 0 {
 		kind := kind.DSLName(t.Kind())
 
-		return fmt.Errorf("goa-lint[%s]: %s names should be %s (%#v) in %s(%#v)", r.Name(), kind, r.cfg.WordCase, r.caser.To(t.Name()), kind, t.ID())
+		return fmt.Errorf("goa-lint[%s]: %s should have non-empty description in %s(%#v)", r.Name(), kind, kind, t.ID())
 	}
 
 	return nil

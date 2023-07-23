@@ -16,7 +16,7 @@ var _ rules.Rule = (*Rule)(nil)
 
 type Rule struct {
 	logger *log.Logger
-	cfg    *config.MethodCasingConventionConfig
+	cfg    *config.MethodCasingConvention
 	caser  *casing.Caser
 }
 

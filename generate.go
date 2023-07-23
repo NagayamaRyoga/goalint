@@ -8,6 +8,7 @@ import (
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/type_casing_convention"
+	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/type_description_exists"
 	"github.com/hashicorp/go-multierror"
 	"goa.design/goa/v3/codegen"
 	"goa.design/goa/v3/eval"
@@ -16,6 +17,7 @@ import (
 var Rules = []rules.NewRule{
 	method_casing_convention.NewRule,
 	type_casing_convention.NewRule,
+	type_description_exists.NewRule,
 }
 
 func init() {
