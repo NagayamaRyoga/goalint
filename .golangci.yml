@@ -1,0 +1,26 @@
+linters:
+  enable-all: true
+  disable:
+    - cyclop
+    - depguard
+    - gochecknoinits
+    - gochecknoglobals
+    - gomoddirectives
+    - interfacebloat
+    - ireturn
+    - lll
+    - revive
+    - stylecheck
+    - varnamelen
+    - wrapcheck
+    # Deprecated linters
+    - deadcode
+    - exhaustivestruct
+    - golint
+    - ifshort
+    - interfacer
+    - maligned
+    - nosnakecase
+    - scopelint
+    - structcheck
+    - varcheck

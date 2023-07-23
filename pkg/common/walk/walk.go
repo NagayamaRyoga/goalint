@@ -36,6 +36,7 @@ func WalkExpression(roots []eval.Root, walker ExpressionWalker) error {
 					merr = multierror.Append(merr, err)
 				}
 			}
+
 			return nil
 		})
 	}

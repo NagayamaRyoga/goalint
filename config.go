@@ -10,5 +10,6 @@ var cfg = config.NewConfig()
 
 func Configure(f func(c *Config)) struct{} {
 	f(cfg)
+
 	return struct{}{}
 }
