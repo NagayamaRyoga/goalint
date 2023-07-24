@@ -7,6 +7,8 @@ import (
 
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules"
+	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/http_path_casing_convention"
+	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/http_path_segment_validation"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules/type_description_exists"
@@ -18,6 +20,8 @@ var ruleSet = []rules.NewRule{
 	method_casing_convention.NewRule,
 	type_casing_convention.NewRule,
 	type_description_exists.NewRule,
+	http_path_casing_convention.NewRule,
+	http_path_segment_validation.NewRule,
 }
 
 func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {

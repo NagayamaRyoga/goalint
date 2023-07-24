@@ -10,9 +10,11 @@ type Config struct {
 	Disabled bool
 	Debug    bool
 
-	MethodCasingConvention *MethodCasingConvention
-	TypeCasingConvention   *TypeCasingConvention
-	TypeDescriptionExists  *TypeDescriptionExists
+	MethodCasingConvention    *MethodCasingConvention
+	TypeCasingConvention      *TypeCasingConvention
+	TypeDescriptionExists     *TypeDescriptionExists
+	HTTPPathCasingConvention  *HTTPPathCasingConvention
+	HTTPPathSegmentValidation *HTTPPathSegmentValidation
 }
 
 type casingConfig struct {
@@ -30,6 +32,14 @@ type TypeCasingConvention struct {
 }
 
 type TypeDescriptionExists struct {
+	Disabled bool
+}
+
+type HTTPPathCasingConvention struct {
+	casingConfig
+}
+
+type HTTPPathSegmentValidation struct {
 	Disabled bool
 }
 
@@ -62,6 +72,16 @@ func NewConfig() *Config {
 			},
 		},
 		TypeDescriptionExists: &TypeDescriptionExists{
+			Disabled: false,
+		},
+		HTTPPathCasingConvention: &HTTPPathCasingConvention{
+			casingConfig: casingConfig{
+				Disabled:    false,
+				WordCase:    casing.KebabCase,
+				Initialisms: nil,
+			},
+		},
+		HTTPPathSegmentValidation: &HTTPPathSegmentValidation{
 			Disabled: false,
 		},
 	}
