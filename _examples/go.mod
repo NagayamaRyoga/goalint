@@ -3,14 +3,14 @@ module goa.design/examples
 go 1.20
 
 replace (
-	github.com/NagayamaRyoga/goa-lint-plugin => ../
+	github.com/NagayamaRyoga/goalint => ../
 
 	// https://github.com/goadesign/goa/issues/3309
 	github.com/smartystreets/assertions v1.15.1 => github.com/smarty/assertions v1.13.0
 )
 
 require (
-	github.com/NagayamaRyoga/goa-lint-plugin v0.0.0-00010101000000-000000000000
+	github.com/NagayamaRyoga/goalint v0.0.0-00010101000000-000000000000
 	goa.design/goa/v3 v3.12.1
 	google.golang.org/grpc v1.56.1
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0

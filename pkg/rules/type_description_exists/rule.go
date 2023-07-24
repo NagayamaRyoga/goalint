@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/kind"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/walk"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules"
+	"github.com/NagayamaRyoga/goalint/pkg/common/kind"
+	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/rules"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
 )

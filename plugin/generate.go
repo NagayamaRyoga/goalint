@@ -1,21 +1,22 @@
-package lint
+package lintplugin
 
 import (
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/runner"
+	lint "github.com/NagayamaRyoga/goalint"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/runner"
 	"goa.design/goa/v3/codegen"
 	"goa.design/goa/v3/eval"
 )
 
 func init() {
-	codegen.RegisterPlugin("github.com/NagayamaRyoga/goa-lint-plugin", "gen", Prepare, Generate)
+	codegen.RegisterPlugin("github.com/NagayamaRyoga/goalint", "gen", Prepare, Generate)
 }
 
 func Prepare(genpkg string, roots []eval.Root) error {
 	cfg := config.NewConfig()
 
-	if Configurator != nil {
-		Configurator(cfg)
+	if lint.Configurator != nil {
+		lint.Configurator(cfg)
 	}
 
 	if cfg.Disabled {

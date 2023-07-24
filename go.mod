@@ -1,4 +1,4 @@
-module github.com/NagayamaRyoga/goa-lint-plugin
+module github.com/NagayamaRyoga/goalint
 
 go 1.20
 

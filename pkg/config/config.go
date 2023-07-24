@@ -3,7 +3,7 @@ package config
 import (
 	"os"
 
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/casing"
+	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
 )
 
 type Config struct {

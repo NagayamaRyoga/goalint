@@ -1,8 +1,8 @@
 package lint
 
 import (
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/casing"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
 )
 
 type WordCase = casing.WordCase

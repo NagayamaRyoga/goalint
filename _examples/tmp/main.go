@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
+	lint "github.com/NagayamaRyoga/goalint"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/runner"
 	_ "goa.design/examples/cellar/design"
-	"github.com/NagayamaRyoga/goa-lint-plugin"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/runner"
 	"goa.design/goa/v3/eval"
 )
 

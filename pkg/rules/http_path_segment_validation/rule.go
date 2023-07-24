@@ -6,9 +6,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/common/walk"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/rules"
+	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/rules"
 	"github.com/hashicorp/go-multierror"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"

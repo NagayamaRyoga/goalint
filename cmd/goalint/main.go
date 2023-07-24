@@ -89,9 +89,9 @@ import (
 	"os"
 
 	_ {{ printf "%q" .TargetPackage }}
-	"github.com/NagayamaRyoga/goa-lint-plugin"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/config"
-	"github.com/NagayamaRyoga/goa-lint-plugin/pkg/runner"
+	"github.com/NagayamaRyoga/goalint"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/runner"
 	"goa.design/goa/v3/eval"
 )
 
