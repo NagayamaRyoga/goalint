@@ -9,6 +9,10 @@ build:
 test:
 	go test ./...
 
+.PHONY: test-update-snaps
+test-update-snaps:
+	UPDATE_SNAPS=true go test ./...
+
 .PHONY: lint
 lint:
 	golangci-lint run --allow-parallel-runners
