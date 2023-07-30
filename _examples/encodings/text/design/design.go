@@ -21,7 +21,6 @@ var _ = Service("text", func() {
 	Method("concatstrings", func() {
 		// The payload is the two strings to be concatenated
 		Payload(func() {
-
 			Attribute("a", String, "Left operand")
 			Attribute("b", String, "Right operand")
 			Required("a", "b")
@@ -43,7 +42,6 @@ var _ = Service("text", func() {
 	Method("concatbytes", func() {
 		// The payload is the two strings to be concatenated
 		Payload(func() {
-
 			Attribute("a", String, "Left operand")
 			Attribute("b", String, "Right operand")
 			Required("a", "b")
@@ -66,7 +64,6 @@ var _ = Service("text", func() {
 	Method("concatstringfield", func() {
 		// The payload is the two strings to be concatenated
 		Payload(func() {
-
 			Attribute("a", String, "Left operand")
 			Attribute("b", String, "Right operand")
 			Required("a", "b")
@@ -90,7 +87,6 @@ var _ = Service("text", func() {
 	Method("concatbytesfield", func() {
 		// The payload is the two strings to be concatenated
 		Payload(func() {
-
 			Attribute("a", String, "Left operand")
 			Attribute("b", String, "Right operand")
 			Required("a", "b")

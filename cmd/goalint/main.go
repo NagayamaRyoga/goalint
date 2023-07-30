@@ -41,7 +41,7 @@ func run(ctx context.Context, targetPackage string) (int, error) {
 
 	mainPath := tmpDir + "/main.go"
 	exePath := tmpDir + "/a" + exeExt
-	out, err := os.OpenFile(mainPath, os.O_CREATE|os.O_WRONLY, 0644)
+	out, err := os.OpenFile(mainPath, os.O_CREATE|os.O_WRONLY, 0o644)
 	if err != nil {
 		return -1, fmt.Errorf("os.OpenFile(%q) failed: %w", mainPath, err)
 	}
@@ -79,7 +79,6 @@ func runCommand(ctx context.Context, name string, args ...string) (int, error) {
 	}
 
 	return cmd.ProcessState.ExitCode(), nil
-
 }
 
 const tplMain string = `package main

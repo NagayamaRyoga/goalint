@@ -6,11 +6,13 @@ linters:
     - gochecknoinits
     - gochecknoglobals
     - gocognit
+    - gomnd
     - gomoddirectives
     - interfacebloat
     - ireturn
     - lll
     - nestif
+    - nonamedreturns
     - revive
     - stylecheck
     - varnamelen

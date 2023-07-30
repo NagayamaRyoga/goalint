@@ -3,7 +3,6 @@ package design
 import . "goa.design/goa/v3/dsl"
 
 var _ = Service("calc", func() {
-
 	// The timeout error can be returned by both the "divide" and "add" methods
 	Error("timeout", func() { // Use default error type
 		Timeout()

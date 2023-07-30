@@ -20,5 +20,7 @@ const (
 
 type Initialisms = casing.Initialisms
 
-type Config = config.Config
-type ConfiguratorFunc func(*Config)
+type (
+	Config           = config.Config
+	ConfiguratorFunc func(*Config)
+)

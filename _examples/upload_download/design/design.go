@@ -21,7 +21,6 @@ first. As with SkipRequestBodyDecode using SkipResponseBodyEncodeDecode is
 incompatible with gRPC.`)
 
 	Method("upload", func() {
-
 		// The payload defines the request headers and parameters. It cannot
 		// define body attributes as the endpoint makes use of
 		// SkipRequestBodyEncodeDecode.

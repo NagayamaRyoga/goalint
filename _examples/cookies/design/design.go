@@ -50,5 +50,4 @@ var _ = Service("session", func() {
 			Response(StatusOK)
 		})
 	})
-
 })
