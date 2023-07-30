@@ -1,0 +1,24 @@
+
+[TestRule/success/Type - 1]
+
+---
+
+[TestRule/failed/ResultType - 1]
+Found 3 errors and 0 warnings
+[TypeAttributeCasingConvention]: error in attribute "givenName" in ResultType("application/vnd.user4"): Attribute name "givenName" should be snake_case ("given_name")
+[TypeAttributeCasingConvention]: error in attribute "familyName" in ResultType("application/vnd.user4"): Attribute name "familyName" should be snake_case ("family_name")
+[TypeAttributeCasingConvention]: error in attribute "phoneNumber" in ResultType("application/vnd.user4"): Attribute name "phoneNumber" should be snake_case ("phone_number")
+
+---
+
+[TestRule/failed/Type - 1]
+Found 3 errors and 0 warnings
+[TypeAttributeCasingConvention]: error in attribute "givenName" in Type("User3"): Attribute name "givenName" should be snake_case ("given_name")
+[TypeAttributeCasingConvention]: error in attribute "familyName" in Type("User3"): Attribute name "familyName" should be snake_case ("family_name")
+[TypeAttributeCasingConvention]: error in attribute "phoneNumber" in Type("User3"): Attribute name "phoneNumber" should be snake_case ("phone_number")
+
+---
+
+[TestRule/success/ResultType - 1]
+
+---

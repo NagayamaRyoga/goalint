@@ -38,10 +38,10 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.walkType)
+	return walk.Type(roots, r.WalkType)
 }
 
-func (r *Rule) walkType(t expr.UserType) (rl reports.ReportList) {
+func (r *Rule) WalkType(t expr.UserType) (rl reports.ReportList) {
 	kind := kind.DSLName(t.Kind())
 
 	if obj, ok := t.Attribute().Type.(*expr.Object); ok {
