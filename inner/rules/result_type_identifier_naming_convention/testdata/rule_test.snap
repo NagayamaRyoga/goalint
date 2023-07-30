@@ -1,0 +1,10 @@
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed - 1]
+Found 1 errors and 0 warnings
+[ResultTypeIdentifierNamingConvention]: error in ResultType("book"): ResultType identifier should have prefix 'application/vnd.'
+
+---

@@ -35,10 +35,10 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.walkType)
+	return walk.Type(roots, r.WalkResultType)
 }
 
-func (r *Rule) walkType(t expr.UserType) (rl reports.ReportList) {
+func (r *Rule) WalkResultType(t expr.UserType) (rl reports.ReportList) {
 	const resultTypeIDPrefix = "application/vnd."
 
 	if t.Kind() == expr.ResultTypeKind && !strings.HasPrefix(t.ID(), resultTypeIDPrefix) {
