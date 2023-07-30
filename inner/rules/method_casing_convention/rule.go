@@ -1,11 +1,11 @@
 package method_casing_convention
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/NagayamaRyoga/goalint/inner/common/casing"
 	"github.com/NagayamaRyoga/goalint/inner/common/walk"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
@@ -19,7 +19,7 @@ type Rule struct {
 	caser  *casing.Caser
 }
 
-func NewRule(logger *log.Logger, cfg *Config) rules.Rule {
+func NewRule(logger *log.Logger, cfg *Config) *Rule {
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,
@@ -35,16 +35,21 @@ func (r *Rule) IsDisabled() bool {
 	return r.cfg.Disabled
 }
 
-func (r *Rule) Apply(roots []eval.Root) error {
+func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 	return walk.Expression(roots, r.walkExpr)
 }
 
-func (r *Rule) walkExpr(e eval.Expression) error {
+func (r *Rule) walkExpr(e eval.Expression) (rl reports.ReportList) {
 	if e, ok := e.(*expr.MethodExpr); ok {
 		if !r.caser.Check(e.Name) {
-			return fmt.Errorf("goa-lint[%s]: Method name %q should be %s (%q) in %s", r.Name(), e.Name, r.cfg.WordCase, r.caser.To(e.Name), e.EvalName())
+			rl = append(rl, reports.NewReport(
+				r.cfg.Level,
+				r.Name(),
+				e.EvalName(),
+				"Method name %q should be %s (%q)", e.Name, r.cfg.WordCase, r.caser.To(e.Name),
+			))
 		}
 	}
 
-	return nil
+	return
 }

@@ -7,6 +7,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/inner/common/casing"
 	"github.com/NagayamaRyoga/goalint/inner/common/kind"
 	"github.com/NagayamaRyoga/goalint/inner/common/walk"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
@@ -20,7 +21,7 @@ type Rule struct {
 	caser  *casing.Caser
 }
 
-func NewRule(logger *log.Logger, cfg *Config) rules.Rule {
+func NewRule(logger *log.Logger, cfg *Config) *Rule {
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,
@@ -36,16 +37,20 @@ func (r *Rule) IsDisabled() bool {
 	return r.cfg.Disabled
 }
 
-func (r *Rule) Apply(roots []eval.Root) error {
+func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 	return walk.Type(roots, r.walkType)
 }
 
-func (r *Rule) walkType(t expr.UserType) error {
+func (r *Rule) walkType(t expr.UserType) (rl reports.ReportList) {
 	if !r.caser.Check(t.Name()) {
 		kind := kind.DSLName(t.Kind())
 
-		return fmt.Errorf("goa-lint[%s]: %s name %q should be %s (%q) in %s(%q)", r.Name(), kind, t.Name(), r.cfg.WordCase, r.caser.To(t.Name()), kind, t.ID())
+		rl = append(rl, reports.NewReport(
+			r.cfg.Level,
+			fmt.Sprintf("%s(%q)", kind, t.ID()),
+			"%s name %q should be %s (%q)", kind, t.Name(), r.cfg.WordCase, r.caser.To(t.Name()),
+		))
 	}
 
-	return nil
+	return
 }

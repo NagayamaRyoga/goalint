@@ -6,6 +6,7 @@ import (
 
 	"github.com/NagayamaRyoga/goalint/inner/common/kind"
 	"github.com/NagayamaRyoga/goalint/inner/common/walk"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
@@ -18,7 +19,7 @@ type Rule struct {
 	cfg    *Config
 }
 
-func NewRule(logger *log.Logger, cfg *Config) rules.Rule {
+func NewRule(logger *log.Logger, cfg *Config) *Rule {
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,
@@ -33,16 +34,21 @@ func (r *Rule) IsDisabled() bool {
 	return r.cfg.Disabled
 }
 
-func (r *Rule) Apply(roots []eval.Root) error {
+func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 	return walk.Type(roots, r.walkType)
 }
 
-func (r *Rule) walkType(t expr.UserType) error {
+func (r *Rule) walkType(t expr.UserType) (rl reports.ReportList) {
 	if len(t.Attribute().Description) == 0 {
 		kind := kind.DSLName(t.Kind())
 
-		return fmt.Errorf("goa-lint[%s]: %s should have non-empty description in %s(%q)", r.Name(), kind, kind, t.ID())
+		rl = append(rl, reports.NewReport(
+			r.cfg.Level,
+			r.Name(),
+			fmt.Sprintf("%s(%q)", kind, t.ID()),
+			"%s should have non-empty description", kind,
+		))
 	}
 
-	return nil
+	return
 }

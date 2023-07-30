@@ -1,18 +1,20 @@
 package runner
 
 import (
+	"errors"
+	"fmt"
 	"io"
 	"log"
 	"os"
 
 	"github.com/NagayamaRyoga/goalint/inner/config"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"github.com/NagayamaRyoga/goalint/inner/rules/http_path_casing_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/http_path_segment_validation"
 	"github.com/NagayamaRyoga/goalint/inner/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_description_exists"
-	"github.com/hashicorp/go-multierror"
 	"goa.design/goa/v3/eval"
 )
 
@@ -27,8 +29,6 @@ func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 }
 
 func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {
-	var merr error
-
 	out := io.Discard
 	if cfg.Debug {
 		out = os.Stderr
@@ -38,6 +38,8 @@ func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {
 
 	logger.Println("genpkg:", genpkg)
 
+	var reports reports.ReportList
+
 	for _, rule := range newRules(logger, cfg) {
 		if rule.IsDisabled() {
 			continue
@@ -45,10 +47,14 @@ func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {
 
 		logger.Println("rule:", rule.Name())
 
-		if err := rule.Apply(roots); err != nil {
-			merr = multierror.Append(merr, err)
-		}
+		reports = append(reports, rule.Apply(roots)...)
 	}
 
-	return merr
+	fmt.Fprint(os.Stderr, reports)
+
+	if reports.CountErrors() > 0 {
+		return errors.New("goalint failed")
+	}
+
+	return nil
 }

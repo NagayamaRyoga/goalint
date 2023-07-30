@@ -113,7 +113,7 @@ func main() {
 	}
 
 	if err := runner.Run(cfg, {{ printf "%q" .TargetPackage }}, roots); err != nil {
-		fmt.Fprint(os.Stderr, err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 }

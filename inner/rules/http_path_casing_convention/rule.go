@@ -1,15 +1,14 @@
 package http_path_casing_convention
 
 import (
-	"fmt"
 	"log"
+	"strings"
 
 	"github.com/NagayamaRyoga/goalint/inner/common/casing"
 	"github.com/NagayamaRyoga/goalint/inner/common/walk"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
-	"github.com/hashicorp/go-multierror"
 	"goa.design/goa/v3/eval"
-	"goa.design/goa/v3/expr"
 )
 
 var _ rules.Rule = (*Rule)(nil)
@@ -20,7 +19,7 @@ type Rule struct {
 	caser  *casing.Caser
 }
 
-func NewRule(logger *log.Logger, cfg *Config) rules.Rule {
+func NewRule(logger *log.Logger, cfg *Config) *Rule {
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,
@@ -36,42 +35,25 @@ func (r *Rule) IsDisabled() bool {
 	return r.cfg.Disabled
 }
 
-func (r *Rule) Apply(roots []eval.Root) error {
-	return walk.Expression(roots, r.walkExpr)
+func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
+	return walk.Path(roots, r.walkPath)
 }
 
-func (r *Rule) walkExpr(e eval.Expression) error {
-	var merr error
+func (r *Rule) walkPath(e eval.Expression, path string) (rl reports.ReportList) {
+	for _, pathSeg := range strings.Split(path, "/") {
+		if strings.HasPrefix(pathSeg, "{") && strings.HasSuffix(pathSeg, "}") {
+			continue
+		}
 
-	if e, ok := e.(*expr.RootExpr); ok {
-		http := e.API.HTTP
-
-		if err := r.validatePath(http, http.Path); err != nil {
-			merr = multierror.Append(merr, err)
+		if !r.caser.Check(pathSeg) {
+			rl = append(rl, reports.NewReport(
+				r.cfg.Level,
+				r.Name(),
+				e.EvalName(),
+				"Path segment %q should be %s (%q)", pathSeg, r.cfg.WordCase, r.caser.To(path),
+			))
 		}
 	}
 
-	if e, ok := e.(*expr.HTTPEndpointExpr); ok {
-		for _, path := range e.Service.Paths {
-			if err := r.validatePath(e.Service, path); err != nil {
-				merr = multierror.Append(merr, err)
-			}
-		}
-
-		for _, route := range e.Routes {
-			if err := r.validatePath(route, route.Path); err != nil {
-				merr = multierror.Append(merr, err)
-			}
-		}
-	}
-
-	return merr
-}
-
-func (r *Rule) validatePath(e eval.Expression, path string) error {
-	if !r.caser.Check(path) {
-		return fmt.Errorf("goa-lint[%s]: Path should be %s (%q) in %s", r.Name(), r.cfg.WordCase, r.caser.To(path), e.EvalName())
-	}
-
-	return nil
+	return
 }

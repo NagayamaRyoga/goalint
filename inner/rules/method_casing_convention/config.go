@@ -2,10 +2,12 @@ package method_casing_convention
 
 import (
 	"github.com/NagayamaRyoga/goalint/inner/common/casing"
+	"github.com/NagayamaRyoga/goalint/inner/reports"
 )
 
 type Config struct {
 	Disabled    bool
+	Level       reports.ErrorLevel
 	WordCase    casing.WordCase
 	Initialisms casing.Initialisms
 }
@@ -13,6 +15,7 @@ type Config struct {
 func NewConfig() *Config {
 	return &Config{
 		Disabled:    false,
+		Level:       reports.ErrorLevelError,
 		WordCase:    casing.SnakeCase,
 		Initialisms: nil,
 	}
