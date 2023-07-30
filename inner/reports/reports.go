@@ -81,7 +81,7 @@ func NewReport(
 }
 
 func (r *Report) String() string {
-	return fmt.Sprintf("[%s]: %s: %s in %s", r.Rule, r.Level, r.Message, r.Location)
+	return fmt.Sprintf("[%s]: %s in %s: %s", r.Rule, r.Level, r.Location, r.Message)
 }
 
 func (r *Report) IsWarning() bool {
