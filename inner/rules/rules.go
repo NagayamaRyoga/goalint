@@ -3,7 +3,7 @@ package rules
 import (
 	"log"
 
-	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/inner/config"
 	"goa.design/goa/v3/eval"
 )
 

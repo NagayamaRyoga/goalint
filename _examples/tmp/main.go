@@ -5,8 +5,8 @@ import (
 	"os"
 
 	lint "github.com/NagayamaRyoga/goalint"
-	"github.com/NagayamaRyoga/goalint/pkg/config"
-	"github.com/NagayamaRyoga/goalint/pkg/runner"
+	"github.com/NagayamaRyoga/goalint/inner/config"
+	"github.com/NagayamaRyoga/goalint/inner/runner"
 	_ "goa.design/examples/cellar/design"
 	"goa.design/goa/v3/eval"
 )

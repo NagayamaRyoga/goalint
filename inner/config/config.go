@@ -3,7 +3,7 @@ package config
 import (
 	"os"
 
-	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
+	"github.com/NagayamaRyoga/goalint/inner/common/casing"
 )
 
 type Config struct {

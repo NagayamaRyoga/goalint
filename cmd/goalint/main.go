@@ -90,8 +90,8 @@ import (
 
 	_ {{ printf "%q" .TargetPackage }}
 	"github.com/NagayamaRyoga/goalint"
-	"github.com/NagayamaRyoga/goalint/pkg/config"
-	"github.com/NagayamaRyoga/goalint/pkg/runner"
+	"github.com/NagayamaRyoga/goalint/inner/config"
+	"github.com/NagayamaRyoga/goalint/inner/runner"
 	"goa.design/goa/v3/eval"
 )
 

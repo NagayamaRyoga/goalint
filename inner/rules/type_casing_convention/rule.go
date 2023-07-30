@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
-	"github.com/NagayamaRyoga/goalint/pkg/common/kind"
-	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
-	"github.com/NagayamaRyoga/goalint/pkg/config"
-	"github.com/NagayamaRyoga/goalint/pkg/rules"
+	"github.com/NagayamaRyoga/goalint/inner/common/casing"
+	"github.com/NagayamaRyoga/goalint/inner/common/kind"
+	"github.com/NagayamaRyoga/goalint/inner/common/walk"
+	"github.com/NagayamaRyoga/goalint/inner/config"
+	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
 )
