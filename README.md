@@ -22,6 +22,18 @@ var _ = lint.Configure(func(c *lint.Config) {
 
 ## Rules
 
+### ServiceDescriptionExists
+
+```go
+// Bad
+var _ = Service("bad_service", func() {
+})
+// Good
+var _ = Service("good_service", func() {
+	Description("Description about good_service")
+})
+```
+
 ### MethodCasingConvention
 
 ```go

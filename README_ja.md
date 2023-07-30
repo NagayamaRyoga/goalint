@@ -20,6 +20,20 @@ var _ = lint.Configure(func(c *lint.Config) {
 
 ## Rules
 
+### ServiceDescriptionExists
+
+`Service` に `Description` が存在することを確認するルール。
+
+```go
+// Bad
+var _ = Service("bad_service", func() {
+})
+// Good
+var _ = Service("good_service", func() {
+	Description("Description about good_service")
+})
+```
+
 ### MethodCasingConvention
 
 メソッド名のケーシングに関するルール。

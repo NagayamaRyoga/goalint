@@ -16,6 +16,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/inner/rules/method_description_exists"
 	"github.com/NagayamaRyoga/goalint/inner/rules/no_unnamed_method_payload_type"
 	"github.com/NagayamaRyoga/goalint/inner/rules/result_type_identifier_naming_convention"
+	"github.com/NagayamaRyoga/goalint/inner/rules/service_description_exists"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_attribute_casing_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_attribute_description_exists"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_casing_convention"
@@ -27,6 +28,7 @@ var ErrFailed error = errors.New("goalint failed")
 
 func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 	return []rules.Rule{
+		service_description_exists.NewRule(logger, cfg.ServiceDescriptionExists),
 		method_casing_convention.NewRule(logger, cfg.MethodCasingConvention),
 		method_description_exists.NewRule(logger, cfg.MethodDescriptionExists),
 		no_unnamed_method_payload_type.NewRule(logger, cfg.NoUnnamedMethodPayloadType),
