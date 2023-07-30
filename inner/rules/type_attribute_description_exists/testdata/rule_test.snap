@@ -1,0 +1,22 @@
+
+[TestRule/failed/Type - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeDescriptionExists]: error in attribute "id" in Type("Book"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "title" in Type("Book"): Attribute should have non-empty description
+
+---
+
+[TestRule/failed/ResultType - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeDescriptionExists]: error in attribute "id" in ResultType("application/vnd.book"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "title" in ResultType("application/vnd.book"): Attribute should have non-empty description
+
+---
+
+[TestRule/success/Type - 1]
+
+---
+
+[TestRule/success/ResultType - 1]
+
+---
