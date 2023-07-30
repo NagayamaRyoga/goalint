@@ -33,10 +33,10 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Expression(roots, r.walkExpr)
+	return walk.Expression(roots, r.WalkMethodExpr)
 }
 
-func (r *Rule) walkExpr(e eval.Expression) (rl reports.ReportList) {
+func (r *Rule) WalkMethodExpr(e eval.Expression) (rl reports.ReportList) {
 	if e, ok := e.(*expr.MethodExpr); ok {
 		if len(e.Description) == 0 {
 			rl = append(rl, reports.NewReport(
