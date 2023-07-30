@@ -11,12 +11,12 @@ Goa lint plugin/CLI for Goa v3
 package design
 
 import (
-    lint "github.com/NagayamaRyoga/goalint"
-    _ "github.com/NagayamaRyoga/goalint/plugin"
+	lint "github.com/NagayamaRyoga/goalint"
+	_ "github.com/NagayamaRyoga/goalint/plugin"
 )
 
 var _ = lint.Configure(func(c *lint.Config) {
-    // ...
+	// ...
 })
 ```
 
@@ -61,6 +61,20 @@ var GoodPayload = Type("GoodPayload", ...)
 var BadType = Type("bad_type", ...)
 // Good
 var GoodType = Type("GoodType", ...)
+```
+
+### TypeDescriptionExists
+
+```go
+// Bad
+var BadType = Type("BadType", func() {
+	Attribute("a", Int)
+})
+// Good
+var GoodType = Type("GoodType", func() {
+	Description("Description about GoodType")
+	Attribute("a", Int)
+})
 ```
 
 ### TypeAttributeCasingConvention

@@ -67,6 +67,22 @@ var BadType = Type("bad_type", ...)
 var GoodType = Type("GoodType", ...)
 ```
 
+### TypeDescriptionExists
+
+`Type`, `ResultType` の `Description` が存在することを確認するルール。
+
+```go
+// Bad
+var BadType = Type("BadType", func() {
+	Attribute("a", Int)
+})
+// Good
+var GoodType = Type("GoodType", func() {
+	Description("Description about GoodType")
+	Attribute("a", Int)
+})
+```
+
 ### TypeAttributeCasingConvention
 
 `Type`, `ResultType` のアトリビュート名に関するルール。
