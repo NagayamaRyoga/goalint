@@ -16,6 +16,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/inner/rules/no_unnamed_method_payload_type"
 	"github.com/NagayamaRyoga/goalint/inner/rules/result_type_identifier_naming_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_attribute_casing_convention"
+	"github.com/NagayamaRyoga/goalint/inner/rules/type_attribute_description_exists"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goalint/inner/rules/type_description_exists"
 	"goa.design/goa/v3/eval"
@@ -30,6 +31,7 @@ func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 		type_casing_convention.NewRule(logger, cfg.TypeCasingConvention),
 		type_description_exists.NewRule(logger, cfg.TypeDescriptionExists),
 		type_attribute_casing_convention.NewRule(logger, cfg.TypeAttributeCasingConvention),
+		type_attribute_description_exists.NewRule(logger, cfg.TypeAttributeDescriptionExists),
 		result_type_identifier_naming_convention.NewRule(logger, cfg.ResultTypeIdentifierNamingConvention),
 		http_path_casing_convention.NewRule(logger, cfg.HTTPPathCasingConvention),
 		http_path_segment_validation.NewRule(logger, cfg.HTTPPathSegmentValidation),

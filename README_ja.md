@@ -96,6 +96,21 @@ var _ = Type("Something", func() {
 })
 ```
 
+### TypeAttributeDescriptionExists
+
+`Type`, `ResultType` の `Attribute` に `Description` が存在することを確認するルール
+
+```go
+var _ = Type("Type", func() {
+	// Bad
+	Attribute("bad_attr", Int)
+	// Good
+	Attribute("good_attr", Int, func() {
+		Description("Description about good_attr")
+	})
+})
+```
+
 ### ResultTypeIdentifierNamingConvention
 
 `ResultType` のIDに関するルール。

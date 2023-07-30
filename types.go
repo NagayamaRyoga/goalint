@@ -18,9 +18,9 @@ const (
 	GoKebabCase  = casing.GoKebabCase
 )
 
-type Initialisms = casing.Initialisms
-
 type (
-	Config           = config.Config
-	ConfiguratorFunc func(*Config)
+	Initialisms = casing.Initialisms
+	Config      = config.Config
 )
+
+type ConfiguratorFunc func(*Config)
