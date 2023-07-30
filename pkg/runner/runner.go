@@ -12,6 +12,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_segment_validation"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/method_array_result"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_payload_type"
@@ -31,6 +32,7 @@ func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 		service_description_exists.NewRule(logger, cfg.ServiceDescriptionExists),
 		method_casing_convention.NewRule(logger, cfg.MethodCasingConvention),
 		method_description_exists.NewRule(logger, cfg.MethodDescriptionExists),
+		method_array_result.NewRule(logger, cfg.MethodArrayResult),
 		no_unnamed_method_payload_type.NewRule(logger, cfg.NoUnnamedMethodPayloadType),
 		type_casing_convention.NewRule(logger, cfg.TypeCasingConvention),
 		type_description_exists.NewRule(logger, cfg.TypeDescriptionExists),

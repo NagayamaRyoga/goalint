@@ -5,6 +5,7 @@ import (
 
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_segment_validation"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/method_array_result"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_payload_type"
@@ -23,6 +24,7 @@ type Config struct {
 	ServiceDescriptionExists             *service_description_exists.Config
 	MethodCasingConvention               *method_casing_convention.Config
 	MethodDescriptionExists              *method_description_exists.Config
+	MethodArrayResult                    *method_array_result.Config
 	NoUnnamedMethodPayloadType           *no_unnamed_method_payload_type.Config
 	TypeCasingConvention                 *type_casing_convention.Config
 	TypeDescriptionExists                *type_description_exists.Config
@@ -51,6 +53,7 @@ func NewConfig() *Config {
 		ServiceDescriptionExists:             service_description_exists.NewConfig(),
 		MethodCasingConvention:               method_casing_convention.NewConfig(),
 		MethodDescriptionExists:              method_description_exists.NewConfig(),
+		MethodArrayResult:                    method_array_result.NewConfig(),
 		NoUnnamedMethodPayloadType:           no_unnamed_method_payload_type.NewConfig(),
 		TypeCasingConvention:                 type_casing_convention.NewConfig(),
 		TypeDescriptionExists:                type_description_exists.NewConfig(),

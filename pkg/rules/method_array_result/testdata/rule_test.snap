@@ -1,0 +1,16 @@
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed/ArrayOf - 1]
+Found 1 errors and 0 warnings
+[MethodArrayResult]: error in service "calc2" method "list_titles2": Method should not return an array as the top-level structure of a response
+
+---
+
+[TestRule/failed/CollectionOf - 1]
+Found 1 errors and 0 warnings
+[MethodArrayResult]: error in service "calc3" method "list_titles3": Method should not return an array as the top-level structure of a response
+
+---

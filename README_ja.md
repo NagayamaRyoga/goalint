@@ -62,6 +62,25 @@ var _ = Service("service", func() {
 })
 ```
 
+### MethodArrayResult
+
+`Method` の `Result` が直接配列を返すことを禁止するルール。
+
+```go
+var _ = Service("service", func() {
+	Method("list_titles", func() {
+		// Bad
+		Result(ArrayOf(String))
+		// Good
+		Result(ListTitlesResponse)
+	})
+})
+var ListTitlesResponse = Type("ListTitlesResponse", func() {
+	Required("titles")
+	Attribute("titles", ArrayOf(String))
+})
+```
+
 ### NoUnnamedMethodPayloadType
 
 `Method` の `Payload` に無名型を使用することを禁止するルール。

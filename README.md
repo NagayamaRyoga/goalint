@@ -58,6 +58,23 @@ var _ = Service("service", func() {
 })
 ```
 
+### MethodArrayResult
+
+```go
+var _ = Service("service", func() {
+	Method("list_titles", func() {
+		// Bad
+		Result(ArrayOf(String))
+		// Good
+		Result(ListTitlesResponse)
+	})
+})
+var ListTitlesResponse = Type("ListTitlesResponse", func() {
+	Required("titles")
+	Attribute("titles", ArrayOf(String))
+})
+```
+
 ### NoUnnamedMethodPayloadType
 
 ```go
