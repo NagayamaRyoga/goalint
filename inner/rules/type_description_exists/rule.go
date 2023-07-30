@@ -35,10 +35,10 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.walkType)
+	return walk.Type(roots, r.WalkUserType)
 }
 
-func (r *Rule) walkType(t expr.UserType) (rl reports.ReportList) {
+func (r *Rule) WalkUserType(t expr.UserType) (rl reports.ReportList) {
 	if len(t.Attribute().Description) == 0 {
 		kind := kind.DSLName(t.Kind())
 

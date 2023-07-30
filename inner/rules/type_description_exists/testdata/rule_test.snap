@@ -1,0 +1,20 @@
+
+[TestRule/success/Type - 1]
+
+---
+
+[TestRule/failed/Type - 1]
+Found 1 errors and 0 warnings
+[TypeDescriptionExists]: error in Type("Book"): Type should have non-empty description
+
+---
+
+[TestRule/success/ResultType - 1]
+
+---
+
+[TestRule/failed/ResultType - 1]
+Found 1 errors and 0 warnings
+[TypeDescriptionExists]: error in ResultType("application/vnd.book"): ResultType should have non-empty description
+
+---
