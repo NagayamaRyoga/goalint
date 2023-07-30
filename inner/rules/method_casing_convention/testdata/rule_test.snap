@@ -1,0 +1,10 @@
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed - 1]
+Found 1 errors and 0 warnings
+[MethodCasingConvention]: error in service "calc2" method "AddNumbers": Method name "AddNumbers" should be snake_case ("add_numbers")
+
+---

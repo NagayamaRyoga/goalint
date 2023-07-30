@@ -1,11 +1,11 @@
-package service_description_exists_test
+package method_casing_convention_test
 
 import (
 	"log"
 	"os"
 	"testing"
 
-	"github.com/NagayamaRyoga/goalint/inner/rules/service_description_exists"
+	"github.com/NagayamaRyoga/goalint/inner/rules/method_casing_convention"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/stretchr/testify/assert"
 	"goa.design/goa/v3/dsl"
@@ -17,11 +17,16 @@ func TestRule(t *testing.T) {
 	t.Parallel()
 
 	var (
-		serviceWithDescription = dsl.Service("calc", func() {
-			dsl.Description("A simple calculator service")
+		methodWithSnakeName = dsl.Service("calc", func() {
+			dsl.Method("add_numbers", func() {
+				dsl.Description("Adds up two numbers")
+			})
 		})
 
-		serviceWithoutDescription = dsl.Service("calc2", func() {
+		methodWithPascalName = dsl.Service("calc2", func() {
+			dsl.Method("AddNumbers", func() {
+				dsl.Description("Adds up two numbers")
+			})
 		})
 	)
 
@@ -36,12 +41,12 @@ func TestRule(t *testing.T) {
 	}{
 		{
 			description: "success",
-			service:     serviceWithDescription,
+			service:     methodWithSnakeName,
 			wantReports: 0,
 		},
 		{
 			description: "failed",
-			service:     serviceWithoutDescription,
+			service:     methodWithPascalName,
 			wantReports: 1,
 		},
 	}
@@ -53,11 +58,13 @@ func TestRule(t *testing.T) {
 			snaps := snaps.WithConfig(snaps.Dir("testdata"))
 
 			logger := log.New(os.Stdout, "", 0)
-			cfg := service_description_exists.NewConfig()
-			rule := service_description_exists.NewRule(logger, cfg)
+			cfg := method_casing_convention.NewConfig()
+			rule := method_casing_convention.NewRule(logger, cfg)
 
 			// when
-			got := rule.WalkServiceExpr(tc.service)
+			assert.Equal(t, 1, len(tc.service.Methods))
+
+			got := rule.WalkMethodExpr(tc.service.Methods[0])
 			assert.Equal(t, tc.wantReports, len(got))
 			snaps.MatchSnapshot(t, got.String())
 		})
