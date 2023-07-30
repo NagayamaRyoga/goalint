@@ -3,44 +3,22 @@ package config
 import (
 	"os"
 
-	"github.com/NagayamaRyoga/goalint/inner/common/casing"
+	"github.com/NagayamaRyoga/goalint/inner/rules/http_path_casing_convention"
+	"github.com/NagayamaRyoga/goalint/inner/rules/http_path_segment_validation"
+	"github.com/NagayamaRyoga/goalint/inner/rules/method_casing_convention"
+	"github.com/NagayamaRyoga/goalint/inner/rules/type_casing_convention"
+	"github.com/NagayamaRyoga/goalint/inner/rules/type_description_exists"
 )
 
 type Config struct {
 	Disabled bool
 	Debug    bool
 
-	MethodCasingConvention    *MethodCasingConvention
-	TypeCasingConvention      *TypeCasingConvention
-	TypeDescriptionExists     *TypeDescriptionExists
-	HTTPPathCasingConvention  *HTTPPathCasingConvention
-	HTTPPathSegmentValidation *HTTPPathSegmentValidation
-}
-
-type casingConfig struct {
-	Disabled    bool
-	WordCase    casing.WordCase
-	Initialisms casing.Initialisms
-}
-
-type MethodCasingConvention struct {
-	casingConfig
-}
-
-type TypeCasingConvention struct {
-	casingConfig
-}
-
-type TypeDescriptionExists struct {
-	Disabled bool
-}
-
-type HTTPPathCasingConvention struct {
-	casingConfig
-}
-
-type HTTPPathSegmentValidation struct {
-	Disabled bool
+	MethodCasingConvention    *method_casing_convention.Config
+	TypeCasingConvention      *type_casing_convention.Config
+	TypeDescriptionExists     *type_description_exists.Config
+	HTTPPathCasingConvention  *http_path_casing_convention.Config
+	HTTPPathSegmentValidation *http_path_segment_validation.Config
 }
 
 func NewConfig() *Config {
@@ -57,32 +35,11 @@ func NewConfig() *Config {
 	return &Config{
 		Disabled: disabled,
 		Debug:    debug,
-		MethodCasingConvention: &MethodCasingConvention{
-			casingConfig: casingConfig{
-				Disabled:    false,
-				WordCase:    casing.SnakeCase,
-				Initialisms: nil,
-			},
-		},
-		TypeCasingConvention: &TypeCasingConvention{
-			casingConfig: casingConfig{
-				Disabled:    false,
-				WordCase:    casing.GoPascalCase,
-				Initialisms: nil,
-			},
-		},
-		TypeDescriptionExists: &TypeDescriptionExists{
-			Disabled: false,
-		},
-		HTTPPathCasingConvention: &HTTPPathCasingConvention{
-			casingConfig: casingConfig{
-				Disabled:    false,
-				WordCase:    casing.KebabCase,
-				Initialisms: nil,
-			},
-		},
-		HTTPPathSegmentValidation: &HTTPPathSegmentValidation{
-			Disabled: false,
-		},
+
+		MethodCasingConvention:    method_casing_convention.NewConfig(),
+		TypeCasingConvention:      type_casing_convention.NewConfig(),
+		TypeDescriptionExists:     type_description_exists.NewConfig(),
+		HTTPPathCasingConvention:  http_path_casing_convention.NewConfig(),
+		HTTPPathSegmentValidation: http_path_segment_validation.NewConfig(),
 	}
 }

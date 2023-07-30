@@ -6,7 +6,6 @@ import (
 
 	"github.com/NagayamaRyoga/goalint/inner/common/casing"
 	"github.com/NagayamaRyoga/goalint/inner/common/walk"
-	"github.com/NagayamaRyoga/goalint/inner/config"
 	"github.com/NagayamaRyoga/goalint/inner/rules"
 	"github.com/hashicorp/go-multierror"
 	"goa.design/goa/v3/eval"
@@ -17,13 +16,11 @@ var _ rules.Rule = (*Rule)(nil)
 
 type Rule struct {
 	logger *log.Logger
-	cfg    *config.HTTPPathCasingConvention
+	cfg    *Config
 	caser  *casing.Caser
 }
 
-func NewRule(logger *log.Logger, c *config.Config) rules.Rule {
-	cfg := c.HTTPPathCasingConvention
-
+func NewRule(logger *log.Logger, cfg *Config) rules.Rule {
 	return &Rule{
 		logger: logger,
 		cfg:    cfg,

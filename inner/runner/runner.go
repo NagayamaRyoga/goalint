@@ -16,12 +16,14 @@ import (
 	"goa.design/goa/v3/eval"
 )
 
-var ruleSet = []rules.NewRule{
-	method_casing_convention.NewRule,
-	type_casing_convention.NewRule,
-	type_description_exists.NewRule,
-	http_path_casing_convention.NewRule,
-	http_path_segment_validation.NewRule,
+func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
+	return []rules.Rule{
+		method_casing_convention.NewRule(logger, cfg.MethodCasingConvention),
+		type_casing_convention.NewRule(logger, cfg.TypeCasingConvention),
+		type_description_exists.NewRule(logger, cfg.TypeDescriptionExists),
+		http_path_casing_convention.NewRule(logger, cfg.HTTPPathCasingConvention),
+		http_path_segment_validation.NewRule(logger, cfg.HTTPPathSegmentValidation),
+	}
 }
 
 func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {
@@ -36,15 +38,14 @@ func Run(cfg *config.Config, genpkg string, roots []eval.Root) error {
 
 	logger.Println("genpkg:", genpkg)
 
-	for _, rule := range ruleSet {
-		r := rule(logger, cfg)
-		if r.IsDisabled() {
+	for _, rule := range newRules(logger, cfg) {
+		if rule.IsDisabled() {
 			continue
 		}
 
-		logger.Println("rule:", r.Name())
+		logger.Println("rule:", rule.Name())
 
-		if err := r.Apply(roots); err != nil {
+		if err := rule.Apply(roots); err != nil {
 			merr = multierror.Append(merr, err)
 		}
 	}
