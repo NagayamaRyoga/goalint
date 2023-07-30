@@ -24,12 +24,89 @@ var _ = lint.Configure(func(c *lint.Config) {
 
 ### MethodCasingConvention
 
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("getBadExample", ...)
+	// Good
+	Method("get_good_example", ...)
+})
+```
+
+### NoUnnamedMethodPayloadType
+
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("bad", func() {
+		Payload(func() {
+			Attribute("a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+	})
+	// Good
+	Method("good", func() {
+		Payload(GoodPayload)
+	})
+})
+
+var GoodPayload = Type("GoodPayload", ...)
+```
+
 ### TypeCasingConvention
+
+```go
+// Bad
+var BadType = Type("bad_type", ...)
+// Good
+var GoodType = Type("GoodType", ...)
+```
 
 ### TypeAttributeCasingConvention
 
+```go
+var _ = Type("Something", func() {
+	// Bad
+	Attribute("badAttribute", Int)
+	// Good
+	Attribute("good_attribute", Int)
+})
+```
+
 ### ResultTypeIdentifierNamingConvention
+
+```go
+// Bad
+var BadResultType = Type("bad-result-type", ...)
+// Good
+var GoodResultType = Type("application/vnd.good-result-type", ...)
+```
 
 ### HTTPPathCasingConvention
 
+```go
+var _ = Service("service", func() {
+	Method("method", func() {
+		HTTP(func() {
+			// Bad
+			GET("/bad_path")
+			// Good
+			GET("/good-path")
+		})
+	})
+})
+```
+
 ### HTTPPathSegmentValidation
+
+```go
+var _ = Service("service", func() {
+	Method("method", func() {
+		HTTP(func() {
+			// Bad
+			GET("/b{ad}_path")
+		})
+	})
+})
+```
