@@ -33,6 +33,19 @@ var _ = Service("service", func() {
 })
 ```
 
+### MethodDescriptionExists
+
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("getBadExample", func() {})
+	// Good
+	Method("get_good_example", func() {
+		Description("Description about get_good_example")
+	})
+})
+```
+
 ### NoUnnamedMethodPayloadType
 
 ```go

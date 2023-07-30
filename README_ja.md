@@ -33,6 +33,21 @@ var _ = Service("service", func() {
 })
 ```
 
+### MethodDescriptionExists
+
+`Method` に `Description` が存在することを確認するルール。
+
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("getBadExample", func() {})
+	// Good
+	Method("get_good_example", func() {
+		Description("Description about get_good_example")
+	})
+})
+```
+
 ### NoUnnamedMethodPayloadType
 
 `Method` の `Payload` に無名型を使用することを禁止するルール。
