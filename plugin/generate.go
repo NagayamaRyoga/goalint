@@ -2,8 +2,8 @@ package lintplugin
 
 import (
 	lint "github.com/NagayamaRyoga/goalint"
-	"github.com/NagayamaRyoga/goalint/inner/config"
-	"github.com/NagayamaRyoga/goalint/inner/runner"
+	"github.com/NagayamaRyoga/goalint/pkg/config"
+	"github.com/NagayamaRyoga/goalint/pkg/runner"
 	"goa.design/goa/v3/codegen"
 	"goa.design/goa/v3/eval"
 )
