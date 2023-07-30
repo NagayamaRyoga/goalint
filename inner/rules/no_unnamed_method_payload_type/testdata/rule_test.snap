@@ -1,0 +1,10 @@
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed - 1]
+Found 1 errors and 0 warnings
+[NoUnnamedMethodPayloadType]: error in service "calc2" method "add_numbers2": Method payload should be an user defined type
+
+---
