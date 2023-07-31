@@ -38,23 +38,13 @@ func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 
 func (r *Rule) WalkMethodExpr(e eval.Expression) (rl reports.ReportList) {
 	if e, ok := e.(*expr.MethodExpr); ok {
-		switch t := e.Result.Type.(type) {
-		case *expr.Array:
+		if array := expr.AsArray(e.Result.Type); array != nil {
 			rl = append(rl, reports.NewReport(
 				r.cfg.Level,
 				r.Name(),
 				e.EvalName(),
 				"Method should not return an array as the top-level structure of a response",
 			))
-		case *expr.ResultTypeExpr:
-			if _, ok := t.AttributeExpr.Type.(*expr.Array); ok {
-				rl = append(rl, reports.NewReport(
-					r.cfg.Level,
-					r.Name(),
-					e.EvalName(),
-					"Method should not return an array as the top-level structure of a response",
-				))
-			}
 		}
 	}
 
