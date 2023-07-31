@@ -104,6 +104,29 @@ var _ = Service("service", func() {
 var GoodPayload = Type("GoodPayload", ...)
 ```
 
+### NoUnnamedMethodResultType
+
+`Method` の `Result` に無名型を使用することを禁止するルール。
+
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("bad", func() {
+		Result(func() {
+			Attribute("a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+	})
+	// Good
+	Method("good", func() {
+		Result(GoodResponse)
+	})
+})
+
+var GoodResponse = Type("GoodResponse", ...)
+```
+
 ### TypeCasingConvention
 
 `Type`, `ResultType` 名のケーシングに関するルール。

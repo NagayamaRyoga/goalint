@@ -1,4 +1,4 @@
-package no_unnamed_method_payload_type
+package no_unnamed_method_result_type
 
 import (
 	"log"
@@ -25,7 +25,7 @@ func NewRule(logger *log.Logger, cfg *Config) *Rule {
 }
 
 func (r *Rule) Name() string {
-	return "NoUnnamedMethodPayloadType"
+	return "NoUnnamedMethodResultType"
 }
 
 func (r *Rule) IsDisabled() bool {
@@ -38,12 +38,12 @@ func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 
 func (r *Rule) WalkMethodExpr(e eval.Expression) (rl reports.ReportList) {
 	if e, ok := e.(*expr.MethodExpr); ok {
-		if _, ok := e.Payload.Type.(expr.UserType); !ok {
+		if _, ok := e.Result.Type.(expr.UserType); !ok {
 			rl = append(rl, reports.NewReport(
 				r.cfg.Level,
 				r.Name(),
 				e.EvalName(),
-				"Method payload should be an user defined type",
+				"Method result should be an user defined type",
 			))
 		}
 	}

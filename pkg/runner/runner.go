@@ -16,6 +16,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_payload_type"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_result_type"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/result_type_identifier_naming_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/service_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_casing_convention"
@@ -34,6 +35,7 @@ func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 		method_description_exists.NewRule(logger, cfg.MethodDescriptionExists),
 		method_array_result.NewRule(logger, cfg.MethodArrayResult),
 		no_unnamed_method_payload_type.NewRule(logger, cfg.NoUnnamedMethodPayloadType),
+		no_unnamed_method_result_type.NewRule(logger, cfg.NoUnnamedMethodResultType),
 		type_casing_convention.NewRule(logger, cfg.TypeCasingConvention),
 		type_description_exists.NewRule(logger, cfg.TypeDescriptionExists),
 		type_attribute_casing_convention.NewRule(logger, cfg.TypeAttributeCasingConvention),

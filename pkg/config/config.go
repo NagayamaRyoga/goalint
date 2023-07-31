@@ -9,6 +9,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_payload_type"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/no_unnamed_method_result_type"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/result_type_identifier_naming_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/service_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_casing_convention"
@@ -26,6 +27,7 @@ type Config struct {
 	MethodDescriptionExists              *method_description_exists.Config
 	MethodArrayResult                    *method_array_result.Config
 	NoUnnamedMethodPayloadType           *no_unnamed_method_payload_type.Config
+	NoUnnamedMethodResultType            *no_unnamed_method_result_type.Config
 	TypeCasingConvention                 *type_casing_convention.Config
 	TypeDescriptionExists                *type_description_exists.Config
 	TypeAttributeCasingConvention        *type_attribute_casing_convention.Config
@@ -55,6 +57,7 @@ func NewConfig() *Config {
 		MethodDescriptionExists:              method_description_exists.NewConfig(),
 		MethodArrayResult:                    method_array_result.NewConfig(),
 		NoUnnamedMethodPayloadType:           no_unnamed_method_payload_type.NewConfig(),
+		NoUnnamedMethodResultType:            no_unnamed_method_result_type.NewConfig(),
 		TypeCasingConvention:                 type_casing_convention.NewConfig(),
 		TypeDescriptionExists:                type_description_exists.NewConfig(),
 		TypeAttributeCasingConvention:        type_attribute_casing_convention.NewConfig(),

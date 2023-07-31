@@ -1,0 +1,16 @@
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed/object - 1]
+Found 1 errors and 0 warnings
+[NoUnnamedMethodResultType]: error in service "calc2" method "add_numbers2": Method result should be an user defined type
+
+---
+
+[TestRule/failed/int - 1]
+Found 1 errors and 0 warnings
+[NoUnnamedMethodResultType]: error in service "calc3" method "add_numbers3": Method result should be an user defined type
+
+---

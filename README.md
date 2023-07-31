@@ -96,6 +96,27 @@ var _ = Service("service", func() {
 var GoodPayload = Type("GoodPayload", ...)
 ```
 
+### NoUnnamedMethodResultType
+
+```go
+var _ = Service("service", func() {
+	// Bad
+	Method("bad", func() {
+		Result(func() {
+			Attribute("a", Int, "Left operand")
+			Field(2, "b", Int, "Right operand")
+			Required("a", "b")
+		})
+	})
+	// Good
+	Method("good", func() {
+		Result(GoodResponse)
+	})
+})
+
+var GoodResponse = Type("GoodResponse", ...)
+```
+
 ### TypeCasingConvention
 
 ```go
