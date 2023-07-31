@@ -1,11 +1,10 @@
 package type_casing_convention
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
-	"github.com/NagayamaRyoga/goalint/pkg/common/kind"
+	"github.com/NagayamaRyoga/goalint/pkg/common/datatype"
 	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
 	"github.com/NagayamaRyoga/goalint/pkg/reports"
 	"github.com/NagayamaRyoga/goalint/pkg/rules"
@@ -38,19 +37,19 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.WalkUserType)
+	return walk.Type(roots, r.WalkType)
 }
 
-func (r *Rule) WalkUserType(t expr.UserType) (rl reports.ReportList) {
-	if !r.caser.Check(t.Name()) {
-		kind := kind.DSLName(t.Kind())
-
-		rl = append(rl, reports.NewReport(
-			r.cfg.Level,
-			r.Name(),
-			fmt.Sprintf("%s(%q)", kind, t.ID()),
-			"%s name %q should be %s (%q)", kind, t.Name(), r.cfg.WordCase, r.caser.To(t.Name()),
-		))
+func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
+	if t, ok := t.(expr.UserType); ok {
+		if !r.caser.Check(t.Name()) {
+			rl = append(rl, reports.NewReport(
+				r.cfg.Level,
+				r.Name(),
+				datatype.TypeName(t),
+				"%s name %q should be %s (%q)", datatype.DSLName(t), t.Name(), r.cfg.WordCase, r.caser.To(t.Name()),
+			))
+		}
 	}
 
 	return

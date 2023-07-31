@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/NagayamaRyoga/goalint/pkg/common/kind"
+	"github.com/NagayamaRyoga/goalint/pkg/common/datatype"
 	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
 	"github.com/NagayamaRyoga/goalint/pkg/reports"
 	"github.com/NagayamaRyoga/goalint/pkg/rules"
@@ -35,19 +35,17 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.WalkUserType)
+	return walk.Type(roots, r.WalkType)
 }
 
-func (r *Rule) WalkUserType(t expr.UserType) (rl reports.ReportList) {
-	kind := kind.DSLName(t.Kind())
-
-	if obj, ok := t.Attribute().Type.(*expr.Object); ok {
+func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
+	if obj := expr.AsObject(t); obj != nil {
 		for _, attr := range *obj {
 			if len(attr.Attribute.Description) == 0 {
 				rl = append(rl, reports.NewReport(
 					r.cfg.Level,
 					r.Name(),
-					fmt.Sprintf("attribute %q in %s(%q)", attr.Name, kind, t.ID()),
+					fmt.Sprintf("attribute %q in %s", attr.Name, datatype.TypeName(t)),
 					"Attribute should have non-empty description",
 				))
 			}

@@ -42,6 +42,27 @@ func TestRule(t *testing.T) {
 				dsl.Description("")
 			})
 		})
+
+		payloadWithDescription = dsl.Service("calc", func() {
+			dsl.Method("add", func() {
+				dsl.Payload(func() {
+					dsl.Attribute("lhs", dsl.Int, "Left hand side operand")
+					dsl.Attribute("rhs", dsl.Int, func() {
+						dsl.Description("Right hand side operand")
+					})
+				})
+			})
+		})
+
+		payloadWithoutDescription = dsl.Service("calc2", func() {
+			dsl.Method("add2", func() {
+				dsl.Payload(func() {
+					dsl.Attribute("lhs", dsl.Int)
+					dsl.Attribute("rhs", dsl.Int, func() {
+					})
+				})
+			})
+		})
 	)
 
 	// given
@@ -50,27 +71,37 @@ func TestRule(t *testing.T) {
 
 	testCases := []struct {
 		description string
-		userType    expr.UserType
+		dataType    expr.DataType
 		wantReports int
 	}{
 		{
 			description: "success/Type",
-			userType:    typeWithDescription,
+			dataType:    typeWithDescription,
 			wantReports: 0,
 		},
 		{
 			description: "success/ResultType",
-			userType:    resultTypeWithDescription,
+			dataType:    resultTypeWithDescription,
+			wantReports: 0,
+		},
+		{
+			description: "success/Payload",
+			dataType:    payloadWithDescription.Methods[0].Payload.Type,
 			wantReports: 0,
 		},
 		{
 			description: "failed/Type",
-			userType:    typeWithoutDescription,
+			dataType:    typeWithoutDescription,
 			wantReports: 2,
 		},
 		{
 			description: "failed/ResultType",
-			userType:    resultTypeWithoutDescription,
+			dataType:    resultTypeWithoutDescription,
+			wantReports: 2,
+		},
+		{
+			description: "failed/Payload",
+			dataType:    payloadWithoutDescription.Methods[0].Payload.Type,
 			wantReports: 2,
 		},
 	}
@@ -86,7 +117,7 @@ func TestRule(t *testing.T) {
 			rule := type_attribute_description_exists.NewRule(logger, cfg)
 
 			// when
-			got := rule.WalkUserType(tc.userType)
+			got := rule.WalkType(tc.dataType)
 			assert.Equal(t, tc.wantReports, len(got))
 			snaps.MatchSnapshot(t, got.String())
 		})

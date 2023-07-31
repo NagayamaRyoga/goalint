@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/NagayamaRyoga/goalint/pkg/common/casing"
-	"github.com/NagayamaRyoga/goalint/pkg/common/kind"
+	"github.com/NagayamaRyoga/goalint/pkg/common/datatype"
 	"github.com/NagayamaRyoga/goalint/pkg/common/walk"
 	"github.com/NagayamaRyoga/goalint/pkg/reports"
 	"github.com/NagayamaRyoga/goalint/pkg/rules"
@@ -41,16 +41,14 @@ func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 	return walk.Type(roots, r.WalkType)
 }
 
-func (r *Rule) WalkType(t expr.UserType) (rl reports.ReportList) {
-	kind := kind.DSLName(t.Kind())
-
-	if obj, ok := t.Attribute().Type.(*expr.Object); ok {
+func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
+	if obj := expr.AsObject(t); obj != nil {
 		for _, attr := range *obj {
 			if !r.caser.Check(attr.Name) {
 				rl = append(rl, reports.NewReport(
 					r.cfg.Level,
 					r.Name(),
-					fmt.Sprintf("attribute %q in %s(%q)", attr.Name, kind, t.ID()),
+					fmt.Sprintf("attribute %q in %s", attr.Name, datatype.TypeName(t)),
 					"Attribute name %q should be %s (%q)", attr.Name, r.cfg.WordCase, r.caser.To(attr.Name),
 				))
 			}

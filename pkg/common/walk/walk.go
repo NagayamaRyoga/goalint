@@ -9,7 +9,7 @@ import (
 type (
 	ExpressionWalkerFunc func(e eval.Expression) reports.ReportList
 	PathWalkerFunc       func(e eval.Expression, path string) reports.ReportList
-	TypeWalkerFunc       func(t expr.UserType) reports.ReportList
+	TypeWalkerFunc       func(t expr.DataType) reports.ReportList
 )
 
 func Expression(roots []eval.Root, walker ExpressionWalkerFunc) (rl reports.ReportList) {
@@ -66,6 +66,13 @@ func Type(roots []eval.Root, walker TypeWalkerFunc) (rl reports.ReportList) {
 			for _, t := range root.ResultTypes {
 				if _, ok := generatedTypes[t]; !ok {
 					rl = append(rl, walker(t)...)
+				}
+			}
+
+			for _, service := range root.Services {
+				for _, method := range service.Methods {
+					rl = append(rl, walker(method.Payload.Type)...)
+					rl = append(rl, walker(method.Result.Type)...)
 				}
 			}
 		}

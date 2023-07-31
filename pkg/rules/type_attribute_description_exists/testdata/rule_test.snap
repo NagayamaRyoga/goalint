@@ -20,3 +20,14 @@ Found 2 errors and 0 warnings
 [TestRule/success/ResultType - 1]
 
 ---
+
+[TestRule/failed/Payload - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeDescriptionExists]: error in attribute "lhs" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "rhs" in Object: Attribute should have non-empty description
+
+---
+
+[TestRule/success/Payload - 1]
+
+---

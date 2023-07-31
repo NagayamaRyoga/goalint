@@ -46,27 +46,27 @@ func TestRule(t *testing.T) {
 
 	testCases := []struct {
 		description string
-		userType    expr.UserType
+		dataType    expr.DataType
 		wantReports int
 	}{
 		{
 			description: "success/Type",
-			userType:    typeWithDescription,
+			dataType:    typeWithDescription,
 			wantReports: 0,
 		},
 		{
 			description: "success/ResultType",
-			userType:    resultTypeWithDescription,
+			dataType:    resultTypeWithDescription,
 			wantReports: 0,
 		},
 		{
 			description: "failed/Type",
-			userType:    typeWithoutDescription,
+			dataType:    typeWithoutDescription,
 			wantReports: 1,
 		},
 		{
 			description: "failed/ResultType",
-			userType:    resultTypeWithoutDescription,
+			dataType:    resultTypeWithoutDescription,
 			wantReports: 1,
 		},
 	}
@@ -82,7 +82,7 @@ func TestRule(t *testing.T) {
 			rule := type_description_exists.NewRule(logger, cfg)
 
 			// when
-			got := rule.WalkUserType(tc.userType)
+			got := rule.WalkType(tc.dataType)
 			assert.Equal(t, tc.wantReports, len(got))
 			snaps.MatchSnapshot(t, got.String())
 		})

@@ -22,3 +22,14 @@ Found 3 errors and 0 warnings
 [TestRule/success/ResultType - 1]
 
 ---
+
+[TestRule/failed/Payload - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeCasingConvention]: error in attribute "LeftHandSide" in Object: Attribute name "LeftHandSide" should be snake_case ("left_hand_side")
+[TypeAttributeCasingConvention]: error in attribute "RightHandSide" in Object: Attribute name "RightHandSide" should be snake_case ("right_hand_side")
+
+---
+
+[TestRule/success/Payload - 1]
+
+---

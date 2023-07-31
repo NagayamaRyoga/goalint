@@ -35,19 +35,21 @@ func (r *Rule) IsDisabled() bool {
 }
 
 func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
-	return walk.Type(roots, r.WalkResultType)
+	return walk.Type(roots, r.WalkType)
 }
 
-func (r *Rule) WalkResultType(t expr.UserType) (rl reports.ReportList) {
+func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
 	const resultTypeIDPrefix = "application/vnd."
 
-	if t.Kind() == expr.ResultTypeKind && !strings.HasPrefix(t.ID(), resultTypeIDPrefix) {
-		rl = append(rl, reports.NewReport(
-			r.cfg.Level,
-			r.Name(),
-			fmt.Sprintf("ResultType(%q)", t.ID()),
-			"ResultType identifier should have prefix '%s'", resultTypeIDPrefix,
-		))
+	if t, ok := t.(*expr.ResultTypeExpr); ok {
+		if !strings.HasPrefix(t.ID(), resultTypeIDPrefix) {
+			rl = append(rl, reports.NewReport(
+				r.cfg.Level,
+				r.Name(),
+				fmt.Sprintf("ResultType(%q)", t.ID()),
+				"ResultType identifier should have prefix '%s'", resultTypeIDPrefix,
+			))
+		}
 	}
 
 	return

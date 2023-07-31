@@ -1,11 +1,28 @@
-package kind
+package datatype
 
 import (
+	"fmt"
+
 	"goa.design/goa/v3/expr"
 )
 
-func DSLName(kind expr.Kind) string {
-	switch kind {
+func TypeName(t expr.DataType) string {
+	switch t := t.(type) {
+	case *expr.Array:
+		return fmt.Sprintf("ArrayOf(%s)", TypeName(t.ElemType.Type))
+	case *expr.Map:
+		return fmt.Sprintf("MapOf(%s, %s)", TypeName(t.KeyType.Type), TypeName(t.ElemType.Type))
+	case *expr.ResultTypeExpr:
+		return fmt.Sprintf("ResultType(%q)", t.ID())
+	case expr.UserType:
+		return fmt.Sprintf("Type(%q)", t.Name())
+	default:
+		return DSLName(t)
+	}
+}
+
+func DSLName(t expr.DataType) string {
+	switch t.Kind() {
 	case expr.BooleanKind:
 		return "Boolean"
 	case expr.IntKind:

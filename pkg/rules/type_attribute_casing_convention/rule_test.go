@@ -44,6 +44,24 @@ func TestRule(t *testing.T) {
 			dsl.Attribute("familyName", dsl.String)
 			dsl.Attribute("phoneNumber", dsl.String)
 		})
+
+		payloadWithSnakeCasedAttributes = dsl.Service("calc", func() {
+			dsl.Method("add", func() {
+				dsl.Payload(func() {
+					dsl.Attribute("left_hand_side", dsl.Int)
+					dsl.Attribute("right_hand_side", dsl.Int)
+				})
+			})
+		})
+
+		payloadWithPascalCasedAttributes = dsl.Service("calc2", func() {
+			dsl.Method("add2", func() {
+				dsl.Payload(func() {
+					dsl.Attribute("LeftHandSide", dsl.Int)
+					dsl.Attribute("RightHandSide", dsl.Int)
+				})
+			})
+		})
 	)
 
 	// given
@@ -52,28 +70,38 @@ func TestRule(t *testing.T) {
 
 	testCases := []struct {
 		description string
-		userType    expr.UserType
+		dataType    expr.DataType
 		wantReports int
 	}{
 		{
 			description: "success/Type",
-			userType:    typeWithValidSnakeCasedAttributes,
+			dataType:    typeWithValidSnakeCasedAttributes,
 			wantReports: 0,
 		},
 		{
 			description: "success/ResultType",
-			userType:    resultTypeWithValidSnakeCasedAttributes,
+			dataType:    resultTypeWithValidSnakeCasedAttributes,
+			wantReports: 0,
+		},
+		{
+			description: "success/Payload",
+			dataType:    payloadWithSnakeCasedAttributes.Methods[0].Payload.Type,
 			wantReports: 0,
 		},
 		{
 			description: "failed/Type",
-			userType:    typeWithValidCamelCasedAttributes,
+			dataType:    typeWithValidCamelCasedAttributes,
 			wantReports: 3,
 		},
 		{
 			description: "failed/ResultType",
-			userType:    resultTypeWithValidCamelCasedAttributes,
+			dataType:    resultTypeWithValidCamelCasedAttributes,
 			wantReports: 3,
+		},
+		{
+			description: "failed/Payload",
+			dataType:    payloadWithPascalCasedAttributes.Methods[0].Payload.Type,
+			wantReports: 2,
 		},
 	}
 	for _, tc := range testCases {
@@ -88,7 +116,7 @@ func TestRule(t *testing.T) {
 			rule := type_attribute_casing_convention.NewRule(logger, cfg)
 
 			// when
-			got := rule.WalkType(tc.userType)
+			got := rule.WalkType(tc.dataType)
 			assert.Equal(t, tc.wantReports, len(got))
 			snaps.MatchSnapshot(t, got.String())
 		})
