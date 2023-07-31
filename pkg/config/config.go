@@ -14,6 +14,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/service_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_description_exists"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_example_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_description_exists"
 )
@@ -32,6 +33,7 @@ type Config struct {
 	TypeDescriptionExists                *type_description_exists.Config
 	TypeAttributeCasingConvention        *type_attribute_casing_convention.Config
 	TypeAttributeDescriptionExists       *type_attribute_description_exists.Config
+	TypeAttributeExampleExists           *type_attribute_example_exists.Config
 	ResultTypeIdentifierNamingConvention *result_type_identifier_naming_convention.Config
 	HTTPPathCasingConvention             *http_path_casing_convention.Config
 	HTTPPathSegmentValidation            *http_path_segment_validation.Config
@@ -62,6 +64,7 @@ func NewConfig() *Config {
 		TypeDescriptionExists:                type_description_exists.NewConfig(),
 		TypeAttributeCasingConvention:        type_attribute_casing_convention.NewConfig(),
 		TypeAttributeDescriptionExists:       type_attribute_description_exists.NewConfig(),
+		TypeAttributeExampleExists:           type_attribute_example_exists.NewConfig(),
 		ResultTypeIdentifierNamingConvention: result_type_identifier_naming_convention.NewConfig(),
 		HTTPPathCasingConvention:             http_path_casing_convention.NewConfig(),
 		HTTPPathSegmentValidation:            http_path_segment_validation.NewConfig(),

@@ -182,6 +182,21 @@ var _ = Type("Type", func() {
 })
 ```
 
+### TypeAttributeExampleExists
+
+`Type`, `ResultType` の `Attribute` に `Example` が存在することを確認するルール
+
+```go
+var _ = Type("Type", func() {
+	// Bad
+	Attribute("bad_attr", Int)
+	// Good
+	Attribute("good_attr", Int, func() {
+		Example(42)
+	})
+})
+```
+
 ### ResultTypeIdentifierNamingConvention
 
 `ResultType` のIDに関するルール。

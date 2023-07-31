@@ -164,6 +164,19 @@ var _ = Type("Type", func() {
 })
 ```
 
+### TypeAttributeExampleExists
+
+```go
+var _ = Type("Type", func() {
+	// Bad
+	Attribute("bad_attr", Int)
+	// Good
+	Attribute("good_attr", Int, func() {
+		Example(42)
+	})
+})
+```
+
 ### ResultTypeIdentifierNamingConvention
 
 ```go

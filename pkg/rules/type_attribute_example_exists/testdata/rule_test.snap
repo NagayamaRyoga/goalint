@@ -1,0 +1,32 @@
+
+[TestRule/success/Type - 1]
+
+---
+
+[TestRule/success/ResultType - 1]
+
+---
+
+[TestRule/failed/Type - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeExampleExists]: error in attribute "id" in Type("Book"): Attribute should have examples
+[TypeAttributeExampleExists]: error in attribute "title" in Type("Book"): Attribute should have examples
+
+---
+
+[TestRule/failed/ResultType - 1]
+Found 1 errors and 0 warnings
+[TypeAttributeExampleExists]: error in attribute "id" in ResultType("application/vnd.book"): Attribute should have examples
+
+---
+
+[TestRule/failed/Payload - 1]
+Found 2 errors and 0 warnings
+[TypeAttributeExampleExists]: error in attribute "lhs" in Object: Attribute should have examples
+[TypeAttributeExampleExists]: error in attribute "rhs" in Object: Attribute should have examples
+
+---
+
+[TestRule/success/Payload - 1]
+
+---

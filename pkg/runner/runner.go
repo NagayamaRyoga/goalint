@@ -21,6 +21,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/service_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_description_exists"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_example_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_description_exists"
 	"goa.design/goa/v3/eval"
@@ -40,6 +41,7 @@ func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 		type_description_exists.NewRule(logger, cfg.TypeDescriptionExists),
 		type_attribute_casing_convention.NewRule(logger, cfg.TypeAttributeCasingConvention),
 		type_attribute_description_exists.NewRule(logger, cfg.TypeAttributeDescriptionExists),
+		type_attribute_example_exists.NewRule(logger, cfg.TypeAttributeExampleExists),
 		result_type_identifier_naming_convention.NewRule(logger, cfg.ResultTypeIdentifierNamingConvention),
 		http_path_casing_convention.NewRule(logger, cfg.HTTPPathCasingConvention),
 		http_path_segment_validation.NewRule(logger, cfg.HTTPPathSegmentValidation),
