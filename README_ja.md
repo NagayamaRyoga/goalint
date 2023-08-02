@@ -66,6 +66,8 @@ var _ = Service("service", func() {
 
 `Method` の `Result` が直接配列を返すことを禁止するルール。
 
+ref: https://github.com/IBM/openapi-validator/blob/main/docs/ibm-cloud-rules.md#ibm-no-array-responses
+
 ```go
 var _ = Service("service", func() {
 	Method("list_titles", func() {

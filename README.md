@@ -60,6 +60,8 @@ var _ = Service("service", func() {
 
 ### MethodArrayResult
 
+ref: https://github.com/IBM/openapi-validator/blob/main/docs/ibm-cloud-rules.md#ibm-no-array-responses
+
 ```go
 var _ = Service("service", func() {
 	Method("list_titles", func() {
