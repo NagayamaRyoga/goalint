@@ -42,16 +42,32 @@ func (r *Rule) Apply(roots []eval.Root) reports.ReportList {
 func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
 	if obj := expr.AsObject(t); obj != nil {
 		for _, attr := range *obj {
-			if !lo.Contains(r.cfg.AllowedTypes, attr.Attribute.Type.Kind()) && len(attr.Attribute.UserExamples) == 0 {
+			if len(attr.Attribute.UserExamples) > 0 {
+				continue
+			}
+
+			if r.isRequiredExamples(attr.Attribute.Type) {
 				rl = append(rl, reports.NewReport(
 					r.cfg.Level,
 					r.Name(),
 					fmt.Sprintf("attribute %q in %s", attr.Name, datatype.TypeName(t)),
-					"Attribute should have examples",
+					"Attribute of type %s should have examples", datatype.TypeName(attr.Attribute.Type),
 				))
 			}
 		}
 	}
 
 	return
+}
+
+func (r *Rule) isRequiredExamples(t expr.DataType) bool {
+	if lo.Contains(r.cfg.RequiredTypes, t) {
+		return true
+	}
+
+	if t := expr.AsArray(t); t != nil {
+		return r.isRequiredExamples(t.ElemType.Type)
+	}
+
+	return false
 }

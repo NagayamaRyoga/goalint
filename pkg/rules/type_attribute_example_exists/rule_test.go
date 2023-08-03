@@ -33,6 +33,7 @@ func TestRule(t *testing.T) {
 			dsl.Attribute("name", dsl.String, func() {
 				dsl.Example("User name")
 			})
+			dsl.Attribute("parent", typeWithExample)
 		})
 
 		typeWithoutExample = dsl.Type("Book", func() {
@@ -67,6 +68,16 @@ func TestRule(t *testing.T) {
 					dsl.Attribute("rhs", dsl.Int)
 				})
 			})
+		})
+
+		arrayTypeWithExample = dsl.Type("Thesis", func() {
+			dsl.Attribute("authors", dsl.ArrayOf(dsl.String), func() {
+				dsl.Example([]string{"Author 1", "Author 2"})
+			})
+		})
+
+		arrayTypeWithoutExample = dsl.Type("Thesis2", func() {
+			dsl.Attribute("authors", dsl.ArrayOf(dsl.String))
 		})
 	)
 
@@ -108,6 +119,16 @@ func TestRule(t *testing.T) {
 			description: "failed/Payload",
 			dataType:    payloadWithoutExample.Methods[0].Payload.Type,
 			wantReports: 2,
+		},
+		{
+			description: "success/Array",
+			dataType:    arrayTypeWithExample,
+			wantReports: 0,
+		},
+		{
+			description: "failed/Array",
+			dataType:    arrayTypeWithoutExample,
+			wantReports: 1,
 		},
 	}
 	for _, tc := range testCases {
