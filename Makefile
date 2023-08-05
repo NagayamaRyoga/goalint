@@ -20,3 +20,7 @@ lint:
 .PHONY: deps
 deps:
 	go mod tidy
+
+.PHONY: examples
+examples:
+	${MAKE} -C _examples

@@ -46,7 +46,6 @@ func TestRule(t *testing.T) {
 		})
 	)
 
-	// given
 	err := eval.RunDSL()
 	assert.NoError(t, err)
 

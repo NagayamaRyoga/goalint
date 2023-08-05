@@ -255,6 +255,23 @@ var _ = Service("service", func() {
 })
 ```
 
+### HTTPPathNamingConvention
+
+HTTPメソッドのパスの命名に関するルール。
+
+```go
+var _ = Service("service", func() {
+	Method("method", func() {
+		HTTP(func() {
+			// Bad
+			GET("bad/path")
+			// Good
+			GET("/good/path")
+		})
+	})
+})
+```
+
 ### HTTPPathSegmentValidation
 
 HTTPメソッドのパスに関するルール。

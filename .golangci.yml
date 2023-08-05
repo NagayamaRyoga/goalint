@@ -3,6 +3,7 @@ linters:
   disable:
     - cyclop
     - depguard
+    - funlen
     - gochecknoinits
     - gochecknoglobals
     - gocognit
@@ -11,6 +12,7 @@ linters:
     - interfacebloat
     - ireturn
     - lll
+    - nakedret
     - nestif
     - nonamedreturns
     - revive

@@ -1,0 +1,20 @@
+
+[TestRule/success/root - 1]
+
+---
+
+[TestRule/failed/empty - 1]
+Found 1 errors and 0 warnings
+[HTTPPathNamingConvention]: error in service "calc" method "bad_empty": Path should starts with / ("/")
+
+---
+
+[TestRule/failed/nested - 1]
+Found 1 errors and 0 warnings
+[HTTPPathNamingConvention]: error in service "calc" method "bad_nested": Path should starts with / ("/a/b")
+
+---
+
+[TestRule/success/nested - 1]
+
+---

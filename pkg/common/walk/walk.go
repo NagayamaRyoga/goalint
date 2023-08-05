@@ -29,15 +29,16 @@ func Expression(roots []eval.Root, walker ExpressionWalkerFunc) (rl reports.Repo
 func Path(roots []eval.Root, walker PathWalkerFunc) reports.ReportList {
 	return Expression(roots, func(e eval.Expression) (rl reports.ReportList) {
 		switch e := e.(type) {
-		case *expr.RootExpr:
-			http := e.API.HTTP
+		case *expr.APIExpr:
+			http := e.HTTP
 			rl = append(rl, walker(http, http.Path)...)
 
-		case *expr.HTTPEndpointExpr:
-			for _, path := range e.Service.Paths {
-				rl = append(rl, walker(e.Service, path)...)
+		case *expr.HTTPServiceExpr:
+			for _, path := range e.Paths {
+				rl = append(rl, walker(e, path)...)
 			}
 
+		case *expr.HTTPEndpointExpr:
 			for _, route := range e.Routes {
 				rl = append(rl, walker(route, route.Path)...)
 			}

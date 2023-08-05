@@ -6,6 +6,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/api_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/api_title_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_casing_convention"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_naming_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_segment_validation"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_array_result"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_casing_convention"
@@ -40,6 +41,7 @@ type Config struct {
 	TypeAttributeExampleExists           *type_attribute_example_exists.Config
 	ResultTypeIdentifierNamingConvention *result_type_identifier_naming_convention.Config
 	HTTPPathCasingConvention             *http_path_casing_convention.Config
+	HTTPPathNamingConvention             *http_path_naming_convention.Config
 	HTTPPathSegmentValidation            *http_path_segment_validation.Config
 }
 
@@ -73,6 +75,7 @@ func NewConfig() *Config {
 		TypeAttributeExampleExists:           type_attribute_example_exists.NewConfig(),
 		ResultTypeIdentifierNamingConvention: result_type_identifier_naming_convention.NewConfig(),
 		HTTPPathCasingConvention:             http_path_casing_convention.NewConfig(),
+		HTTPPathNamingConvention:             http_path_naming_convention.NewConfig(),
 		HTTPPathSegmentValidation:            http_path_segment_validation.NewConfig(),
 	}
 }

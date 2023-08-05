@@ -227,6 +227,21 @@ var _ = Service("service", func() {
 })
 ```
 
+### HTTPPathNamingConvention
+
+```go
+var _ = Service("service", func() {
+	Method("method", func() {
+		HTTP(func() {
+			// Bad
+			GET("bad/path")
+			// Good
+			GET("/good/path")
+		})
+	})
+})
+```
+
 ### HTTPPathSegmentValidation
 
 ```go
