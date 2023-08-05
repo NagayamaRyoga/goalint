@@ -107,8 +107,8 @@ func main() {
 	cfg := config.NewConfig()
 	cfg.Disabled = false
 
-	if lint.Configurator != nil {
-		lint.Configurator(cfg)
+	if goalint.Configurator != nil {
+		goalint.Configurator(cfg)
 	}
 
 	if err := runner.Run(cfg, {{ printf "%q" .TargetPackage }}, roots); err != nil {

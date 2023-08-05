@@ -7,15 +7,15 @@ Goa lint plugin/CLI for Goa v3
 ## Usage
 
 ```go
-// design/lint.go
+// design/goalint.go
 package design
 
 import (
-	lint "github.com/NagayamaRyoga/goalint"
+	"github.com/NagayamaRyoga/goalint"
 	_ "github.com/NagayamaRyoga/goalint/plugin"
 )
 
-var _ = lint.Configure(func(c *lint.Config) {
+var _ = goalint.Configure(func(c *goalint.Config) {
 	// ...
 })
 ```

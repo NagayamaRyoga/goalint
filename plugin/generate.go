@@ -1,7 +1,7 @@
 package lintplugin
 
 import (
-	lint "github.com/NagayamaRyoga/goalint"
+	"github.com/NagayamaRyoga/goalint"
 	"github.com/NagayamaRyoga/goalint/pkg/config"
 	"github.com/NagayamaRyoga/goalint/pkg/runner"
 	"goa.design/goa/v3/codegen"
@@ -15,8 +15,8 @@ func init() {
 func Prepare(genpkg string, roots []eval.Root) error {
 	cfg := config.NewConfig()
 
-	if lint.Configurator != nil {
-		lint.Configurator(cfg)
+	if goalint.Configurator != nil {
+		goalint.Configurator(cfg)
 	}
 
 	if cfg.Disabled {

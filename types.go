@@ -1,4 +1,4 @@
-package lint
+package goalint
 
 import (
 	"github.com/NagayamaRyoga/goalint/pkg/common/casing"

@@ -1,4 +1,4 @@
-package lint
+package goalint
 
 var Configurator ConfiguratorFunc
 
