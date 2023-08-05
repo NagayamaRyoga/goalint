@@ -29,7 +29,7 @@ all: ${EXAMPLES}
 .PHONY: ${EXAMPLES}
 ${EXAMPLES}: deps
 	@echo "run $@..."
-	@go run ../cmd/goalint goa.design/examples/$@/design
+	@go run ../cmd/goalint goa.design/examples/$@/design 2>$@/snapshot.txt || echo '$@ failed'
 
 .PHONY: gen
 gen: ${GEN_TARGETS}

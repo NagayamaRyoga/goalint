@@ -1,0 +1,16 @@
+Found 13 errors and 0 warnings
+[NoUnnamedMethodPayloadType]: error in service "secured_service" method "signin": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "secured_service" method "secure": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "secured_service" method "doubly_secure": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "secured_service" method "also_doubly_secure": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "secured_service" method "secure": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "secured_service" method "doubly_secure": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "secured_service" method "also_doubly_secure": Method result should be an user defined type
+[TypeDescriptionExists]: error in Type("Creds"): Type should have non-empty description
+[TypeDescriptionExists]: error in Type("Creds"): Type should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "oauth_token" in Object: Attribute should have non-empty description
+[TypeAttributeExampleExists]: error in attribute "fail" in Object: Attribute of type Boolean should have examples
+[TypeAttributeExampleExists]: error in attribute "token" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "oauth_token" in Object: Attribute of type String should have examples
+goalint failed
+exit status 1

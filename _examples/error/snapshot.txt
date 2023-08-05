@@ -1,0 +1,23 @@
+Found 20 errors and 0 warnings
+[ServiceDescriptionExists]: error in service "calc": Service should have non-empty description
+[MethodDescriptionExists]: error in service "calc" method "divide": Method should have non-empty description
+[MethodDescriptionExists]: error in service "calc" method "add": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "calc" method "divide": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "calc" method "add": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "calc" method "divide": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "calc" method "add": Method result should be an user defined type
+[TypeAttributeDescriptionExists]: error in attribute "dividend" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "divisor" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "quotient" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "reminder" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "a" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "b" in Object: Attribute should have non-empty description
+[TypeAttributeExampleExists]: error in attribute "message" in Type("DivByZero"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "dividend" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "divisor" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "quotient" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "reminder" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type Int should have examples
+goalint failed
+exit status 1

@@ -1,0 +1,36 @@
+Found 33 errors and 0 warnings
+[MethodDescriptionExists]: error in service "text" method "concatstrings": Method should have non-empty description
+[MethodDescriptionExists]: error in service "text" method "concatbytes": Method should have non-empty description
+[MethodDescriptionExists]: error in service "text" method "concatstringfield": Method should have non-empty description
+[MethodDescriptionExists]: error in service "text" method "concatbytesfield": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "text" method "concatstrings": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "text" method "concatbytes": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "text" method "concatstringfield": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "text" method "concatbytesfield": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "text" method "concatstrings": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "text" method "concatbytes": Method result should be an user defined type
+[TypeDescriptionExists]: error in Type("MyConcatenation"): Type should have non-empty description
+[TypeDescriptionExists]: error in Type("MyConcatenation"): Type should have non-empty description
+[TypeDescriptionExists]: error in Type("MyConcatenation"): Type should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute should have non-empty description
+[TypeAttributeExampleExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute of type Bytes should have examples
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute of type Bytes should have examples
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "stringfield" in Type("MyConcatenation"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "bytesfield" in Type("MyConcatenation"): Attribute of type Bytes should have examples
+goalint failed
+exit status 1

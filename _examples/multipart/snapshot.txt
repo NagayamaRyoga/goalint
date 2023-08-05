@@ -1,0 +1,21 @@
+Found 18 errors and 0 warnings
+[MethodArrayResult]: error in service "resume" method "list": Method should not return an array as the top-level structure of a response
+[MethodArrayResult]: error in service "resume" method "add": Method should not return an array as the top-level structure of a response
+[NoUnnamedMethodPayloadType]: error in service "resume" method "add": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "resume" method "add": Method result should be an user defined type
+[TypeDescriptionExists]: error in Type("Experience"): Type should have non-empty description
+[TypeDescriptionExists]: error in Type("Education"): Type should have non-empty description
+[TypeDescriptionExists]: error in Type("Resume"): Type should have non-empty description
+[TypeDescriptionExists]: error in ResultType("application/vnd.goa.resume"): ResultType should have non-empty description
+[TypeDescriptionExists]: error in ResultType("application/vnd.goa.resume; type=collection"): ResultType should have non-empty description
+[TypeAttributeExampleExists]: error in attribute "company" in Type("Experience"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "role" in Type("Experience"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "duration" in Type("Experience"): Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "institution" in Type("Education"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "major" in Type("Education"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "name" in Type("Resume"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in ResultType("application/vnd.goa.resume"): Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "created_at" in ResultType("application/vnd.goa.resume"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "name" in ResultType("application/vnd.goa.resume"): Attribute of type String should have examples
+goalint failed
+exit status 1

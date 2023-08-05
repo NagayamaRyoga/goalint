@@ -1,0 +1,8 @@
+Found 5 errors and 0 warnings
+[MethodDescriptionExists]: error in service "concat" method "concat": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "concat" method "concat": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "concat" method "concat": Method result should be an user defined type
+[TypeAttributeExampleExists]: error in attribute "a" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "b" in Object: Attribute of type String should have examples
+goalint failed
+exit status 1

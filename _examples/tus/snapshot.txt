@@ -1,0 +1,86 @@
+Found 83 errors and 0 warnings
+[NoUnnamedMethodPayloadType]: error in service "tus" method "head": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "tus" method "patch": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "tus" method "post": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "tus" method "delete": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "tus" method "head": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "tus" method "patch": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "tus" method "options": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "tus" method "post": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "tus" method "delete": Method result should be an user defined type
+[TypeAttributeCasingConvention]: error in attribute "tusVersion" in Type("ErrInvalidTUSResumable"): Attribute name "tusVersion" should be snake_case ("tus_version")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Type("TUSCoreHeaders"): Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadLength" in Type("TUSCoreHeaders"): Attribute name "uploadLength" should be snake_case ("upload_length")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Type("TUSCoreHeaders"): Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Type("TUSCoreRequestHeaders"): Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadLength" in Type("TUSCoreRequestHeaders"): Attribute name "uploadLength" should be snake_case ("upload_length")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Type("TUSCoreRequestHeaders"): Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "tusVersion" in Type("TUSCoreResponseHeaders"): Attribute name "tusVersion" should be snake_case ("tus_version")
+[TypeAttributeCasingConvention]: error in attribute "tusExtension" in Type("TUSCoreResponseHeaders"): Attribute name "tusExtension" should be snake_case ("tus_extension")
+[TypeAttributeCasingConvention]: error in attribute "tusMaxSize" in Type("TUSCoreResponseHeaders"): Attribute name "tusMaxSize" should be snake_case ("tus_max_size")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Type("TUSCoreResponseHeaders"): Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadLength" in Type("TUSCoreResponseHeaders"): Attribute name "uploadLength" should be snake_case ("upload_length")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Type("TUSCoreResponseHeaders"): Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadDeferLength" in Type("TUSExtensionHeaders"): Attribute name "uploadDeferLength" should be snake_case ("upload_defer_length")
+[TypeAttributeCasingConvention]: error in attribute "uploadMetadata" in Type("TUSExtensionHeaders"): Attribute name "uploadMetadata" should be snake_case ("upload_metadata")
+[TypeAttributeCasingConvention]: error in attribute "uploadExpires" in Type("TUSExtensionHeaders"): Attribute name "uploadExpires" should be snake_case ("upload_expires")
+[TypeAttributeCasingConvention]: error in attribute "uploadChecksum" in Type("TUSExtensionHeaders"): Attribute name "uploadChecksum" should be snake_case ("upload_checksum")
+[TypeAttributeCasingConvention]: error in attribute "tusChecksumAlgorithm" in Type("TUSExtensionHeaders"): Attribute name "tusChecksumAlgorithm" should be snake_case ("tus_checksum_algorithm")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Object: Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadLength" in Object: Attribute name "uploadLength" should be snake_case ("upload_length")
+[TypeAttributeCasingConvention]: error in attribute "uploadDeferLength" in Object: Attribute name "uploadDeferLength" should be snake_case ("upload_defer_length")
+[TypeAttributeCasingConvention]: error in attribute "uploadMetadata" in Object: Attribute name "uploadMetadata" should be snake_case ("upload_metadata")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Object: Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadChecksum" in Object: Attribute name "uploadChecksum" should be snake_case ("upload_checksum")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Object: Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadExpires" in Object: Attribute name "uploadExpires" should be snake_case ("upload_expires")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "tusVersion" in Object: Attribute name "tusVersion" should be snake_case ("tus_version")
+[TypeAttributeCasingConvention]: error in attribute "tusExtension" in Object: Attribute name "tusExtension" should be snake_case ("tus_extension")
+[TypeAttributeCasingConvention]: error in attribute "tusMaxSize" in Object: Attribute name "tusMaxSize" should be snake_case ("tus_max_size")
+[TypeAttributeCasingConvention]: error in attribute "tusChecksumAlgorithm" in Object: Attribute name "tusChecksumAlgorithm" should be snake_case ("tus_checksum_algorithm")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadLength" in Object: Attribute name "uploadLength" should be snake_case ("upload_length")
+[TypeAttributeCasingConvention]: error in attribute "uploadDeferLength" in Object: Attribute name "uploadDeferLength" should be snake_case ("upload_defer_length")
+[TypeAttributeCasingConvention]: error in attribute "uploadChecksum" in Object: Attribute name "uploadChecksum" should be snake_case ("upload_checksum")
+[TypeAttributeCasingConvention]: error in attribute "uploadMetadata" in Object: Attribute name "uploadMetadata" should be snake_case ("upload_metadata")
+[TypeAttributeCasingConvention]: error in attribute "tusMaxSize" in Object: Attribute name "tusMaxSize" should be snake_case ("tus_max_size")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "uploadOffset" in Object: Attribute name "uploadOffset" should be snake_case ("upload_offset")
+[TypeAttributeCasingConvention]: error in attribute "uploadExpires" in Object: Attribute name "uploadExpires" should be snake_case ("upload_expires")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeCasingConvention]: error in attribute "tusResumable" in Object: Attribute name "tusResumable" should be snake_case ("tus_resumable")
+[TypeAttributeExampleExists]: error in attribute "tusVersion" in Type("ErrInvalidTUSResumable"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Type("TUSCoreHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadLength" in Type("TUSCoreHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Type("TUSCoreRequestHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadLength" in Type("TUSCoreRequestHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "tusVersion" in Type("TUSCoreResponseHeaders"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "tusExtension" in Type("TUSCoreResponseHeaders"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "tusMaxSize" in Type("TUSCoreResponseHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Type("TUSCoreResponseHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadLength" in Type("TUSCoreResponseHeaders"): Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadDeferLength" in Type("TUSExtensionHeaders"): Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "tusChecksumAlgorithm" in Type("TUSExtensionHeaders"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadLength" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadDeferLength" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "tusVersion" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "tusExtension" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "tusMaxSize" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "tusChecksumAlgorithm" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadLength" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadDeferLength" in Object: Attribute of type Int should have examples
+[TypeAttributeExampleExists]: error in attribute "tusMaxSize" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "uploadOffset" in Object: Attribute of type Int64 should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+goalint failed
+exit status 1

@@ -1,0 +1,8 @@
+Found 5 errors and 0 warnings
+[MethodDescriptionExists]: error in service "updown" method "upload": Method should have non-empty description
+[MethodDescriptionExists]: error in service "updown" method "download": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "updown" method "upload": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "updown" method "download": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "updown" method "download": Method result should be an user defined type
+goalint failed
+exit status 1

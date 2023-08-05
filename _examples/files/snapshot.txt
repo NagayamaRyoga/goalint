@@ -1,0 +1,4 @@
+Found 1 errors and 0 warnings
+[ServiceDescriptionExists]: error in service "openapi": Service should have non-empty description
+goalint failed
+exit status 1

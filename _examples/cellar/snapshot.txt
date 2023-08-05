@@ -1,0 +1,29 @@
+Found 26 errors and 0 warnings
+[MethodDescriptionExists]: error in service "sommelier" method "pick": Method should have non-empty description
+[MethodArrayResult]: error in service "sommelier" method "pick": Method should not return an array as the top-level structure of a response
+[MethodArrayResult]: error in service "storage" method "list": Method should not return an array as the top-level structure of a response
+[MethodArrayResult]: error in service "storage" method "multi_add": Method should not return an array as the top-level structure of a response
+[NoUnnamedMethodPayloadType]: error in service "storage" method "show": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "storage" method "remove": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "storage" method "rate": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "storage" method "multi_add": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "storage" method "multi_update": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "storage" method "add": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "storage" method "multi_add": Method result should be an user defined type
+[TypeAttributeExampleExists]: error in attribute "percentage" in Type("Component"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "vintage" in Type("Bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "rating" in Type("Bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Type("NotFound"): Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "vintage" in ResultType("application/vnd.cellar.stored-bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "rating" in ResultType("application/vnd.cellar.stored-bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "view" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "vintage" in ResultType("application/vnd.cellar.stored-bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "rating" in ResultType("application/vnd.cellar.stored-bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "vintage" in Type("Bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "rating" in Type("Bottle"): Attribute of type UInt32 should have examples
+[TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "ids" in Object: Attribute of type ArrayOf(String) should have examples
+[ResultTypeIdentifierNamingConvention]: error in ResultType("winery"): ResultType identifier should have prefix 'application/vnd.'
+goalint failed
+exit status 1

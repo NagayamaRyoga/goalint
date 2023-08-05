@@ -1,0 +1,14 @@
+Found 11 errors and 0 warnings
+[MethodDescriptionExists]: error in service "session" method "create_session": Method should have non-empty description
+[MethodDescriptionExists]: error in service "session" method "use_session": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "session" method "create_session": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "session" method "use_session": Method payload should be an user defined type
+[NoUnnamedMethodResultType]: error in service "session" method "create_session": Method result should be an user defined type
+[NoUnnamedMethodResultType]: error in service "session" method "use_session": Method result should be an user defined type
+[TypeAttributeExampleExists]: error in attribute "name" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "session_id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "message" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "session_id" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "message" in Object: Attribute of type String should have examples
+goalint failed
+exit status 1

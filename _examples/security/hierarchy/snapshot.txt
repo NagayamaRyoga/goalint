@@ -1,0 +1,14 @@
+Found 11 errors and 0 warnings
+[ServiceDescriptionExists]: error in service "default_service": Service should have non-empty description
+[MethodDescriptionExists]: error in service "api_key_service" method "default": Method should have non-empty description
+[NoUnnamedMethodPayloadType]: error in service "default_service" method "default": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "api_key_service" method "default": Method payload should be an user defined type
+[NoUnnamedMethodPayloadType]: error in service "api_key_service" method "secure": Method payload should be an user defined type
+[TypeAttributeDescriptionExists]: error in attribute "username" in Object: Attribute should have non-empty description
+[TypeAttributeDescriptionExists]: error in attribute "password" in Object: Attribute should have non-empty description
+[TypeAttributeExampleExists]: error in attribute "username" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "password" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "key" in Object: Attribute of type String should have examples
+[TypeAttributeExampleExists]: error in attribute "token" in Object: Attribute of type String should have examples
+goalint failed
+exit status 1
