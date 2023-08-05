@@ -1,5 +1,6 @@
-Found 2 errors and 0 warnings
+Found 3 errors and 0 warnings
 [APITitleExists]: error in API("openapi"): API should have non-empty title
+[ApiDescriptionExists]: error in API("openapi"): API should have non-empty description
 [ServiceDescriptionExists]: error in service "openapi": Service should have non-empty description
 goalint failed
 exit status 1

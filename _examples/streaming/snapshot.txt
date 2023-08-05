@@ -1,4 +1,5 @@
-Found 36 errors and 0 warnings
+Found 37 errors and 0 warnings
+[ApiDescriptionExists]: error in API("chatter"): API should have non-empty description
 [MethodArrayResult]: error in service "chatter" method "summary": Method should not return an array as the top-level structure of a response
 [NoUnnamedMethodPayloadType]: error in service "chatter" method "login": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "chatter" method "echoer": Method payload should be an user defined type

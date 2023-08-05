@@ -34,6 +34,20 @@ var _ = API("api", func() {
 })
 ```
 
+### APIDescriptionExists
+
+`API` に `Description` が存在することを確認するルール。
+
+```go
+// Bad
+var _ = API("api", func() {
+})
+// Good
+var _ = API("api", func() {
+	Description("Description about api")
+})
+```
+
 ### ServiceDescriptionExists
 
 `Service` に `Description` が存在することを確認するルール。

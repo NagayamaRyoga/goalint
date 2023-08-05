@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 
+	"github.com/NagayamaRyoga/goalint/pkg/rules/api_description_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/api_title_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_segment_validation"
@@ -25,6 +26,7 @@ type Config struct {
 	Debug    bool
 
 	APITitleExists                       *api_title_exists.Config
+	APIDescriptionExists                 *api_description_exists.Config
 	ServiceDescriptionExists             *service_description_exists.Config
 	MethodCasingConvention               *method_casing_convention.Config
 	MethodDescriptionExists              *method_description_exists.Config
@@ -57,6 +59,7 @@ func NewConfig() *Config {
 		Debug:    debug,
 
 		APITitleExists:                       api_title_exists.NewConfig(),
+		APIDescriptionExists:                 api_description_exists.NewConfig(),
 		ServiceDescriptionExists:             service_description_exists.NewConfig(),
 		MethodCasingConvention:               method_casing_convention.NewConfig(),
 		MethodDescriptionExists:              method_description_exists.NewConfig(),

@@ -34,6 +34,18 @@ var _ = API("api", func() {
 })
 ```
 
+### APIDescriptionExists
+
+```go
+// Bad
+var _ = API("api", func() {
+})
+// Good
+var _ = API("api", func() {
+	Description("Description about api")
+})
+```
+
 ### ServiceDescriptionExists
 
 ```go

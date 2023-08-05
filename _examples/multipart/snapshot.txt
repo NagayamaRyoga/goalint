@@ -1,5 +1,6 @@
-Found 19 errors and 0 warnings
+Found 20 errors and 0 warnings
 [APITitleExists]: error in API("resume"): API should have non-empty title
+[ApiDescriptionExists]: error in API("resume"): API should have non-empty description
 [MethodArrayResult]: error in service "resume" method "list": Method should not return an array as the top-level structure of a response
 [MethodArrayResult]: error in service "resume" method "add": Method should not return an array as the top-level structure of a response
 [NoUnnamedMethodPayloadType]: error in service "resume" method "add": Method payload should be an user defined type
