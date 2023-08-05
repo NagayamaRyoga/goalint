@@ -1,0 +1,16 @@
+
+[TestRule/failed/empty - 1]
+Found 1 errors and 0 warnings
+[APITitleExists]: error in API("calc3"): API should have non-empty title
+
+---
+
+[TestRule/success - 1]
+
+---
+
+[TestRule/failed/no_title - 1]
+Found 1 errors and 0 warnings
+[APITitleExists]: error in API("calc2"): API should have non-empty title
+
+---

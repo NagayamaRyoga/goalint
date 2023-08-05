@@ -22,6 +22,18 @@ var _ = goalint.Configure(func(c *goalint.Config) {
 
 ## Rules
 
+### APITitleExists
+
+```go
+// Bad
+var _ = API("api", func() {
+})
+// Good
+var _ = API("api", func() {
+	Title("API Title")
+})
+```
+
 ### ServiceDescriptionExists
 
 ```go

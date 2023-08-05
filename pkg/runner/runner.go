@@ -10,6 +10,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/config"
 	"github.com/NagayamaRyoga/goalint/pkg/reports"
 	"github.com/NagayamaRyoga/goalint/pkg/rules"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/api_title_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_segment_validation"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/method_array_result"
@@ -31,6 +32,7 @@ var ErrFailed error = errors.New("goalint failed")
 
 func newRules(logger *log.Logger, cfg *config.Config) []rules.Rule {
 	return []rules.Rule{
+		api_title_exists.NewRule(logger, cfg.APITitleExists),
 		service_description_exists.NewRule(logger, cfg.ServiceDescriptionExists),
 		method_casing_convention.NewRule(logger, cfg.MethodCasingConvention),
 		method_description_exists.NewRule(logger, cfg.MethodDescriptionExists),

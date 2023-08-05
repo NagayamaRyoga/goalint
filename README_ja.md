@@ -20,6 +20,20 @@ var _ = goalint.Configure(func(c *goalint.Config) {
 
 ## Rules
 
+### APITitleExists
+
+`API` に `Title` が存在することを確認するルール。
+
+```go
+// Bad
+var _ = API("api", func() {
+})
+// Good
+var _ = API("api", func() {
+	Title("API Title")
+})
+```
+
 ### ServiceDescriptionExists
 
 `Service` に `Description` が存在することを確認するルール。

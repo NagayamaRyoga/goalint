@@ -1,4 +1,5 @@
-Found 5 errors and 0 warnings
+Found 6 errors and 0 warnings
+[APITitleExists]: error in API("concat"): API should have non-empty title
 [MethodDescriptionExists]: error in service "concat" method "concat": Method should have non-empty description
 [NoUnnamedMethodPayloadType]: error in service "concat" method "concat": Method payload should be an user defined type
 [NoUnnamedMethodResultType]: error in service "concat" method "concat": Method result should be an user defined type

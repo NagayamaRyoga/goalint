@@ -1,4 +1,5 @@
-Found 5 errors and 0 warnings
+Found 6 errors and 0 warnings
+[APITitleExists]: error in API("upload_download"): API should have non-empty title
 [MethodDescriptionExists]: error in service "updown" method "upload": Method should have non-empty description
 [MethodDescriptionExists]: error in service "updown" method "download": Method should have non-empty description
 [NoUnnamedMethodPayloadType]: error in service "updown" method "upload": Method payload should be an user defined type
