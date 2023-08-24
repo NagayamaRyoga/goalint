@@ -1,4 +1,4 @@
-Found 20 errors and 0 warnings
+Found 21 errors and 0 warnings
 [APITitleExists]: error in API("resume"): API should have non-empty title
 [ApiDescriptionExists]: error in API("resume"): API should have non-empty description
 [MethodArrayResult]: error in service "resume" method "list": Method should not return an array as the top-level structure of a response
@@ -19,5 +19,6 @@ Found 20 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "id" in ResultType("application/vnd.goa.resume"): Attribute of type Int should have examples
 [TypeAttributeExampleExists]: error in attribute "created_at" in ResultType("application/vnd.goa.resume"): Attribute of type String should have examples
 [TypeAttributeExampleExists]: error in attribute "name" in ResultType("application/vnd.goa.resume"): Attribute of type String should have examples
+[TypeRequiredOrder]: error in ResultType("application/vnd.goa.resume"): Required attributes should be in order
 goalint failed
 exit status 1

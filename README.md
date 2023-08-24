@@ -203,6 +203,20 @@ var _ = Type("Type", func() {
 })
 ```
 
+### TypeRequiredOrder
+
+```go
+var _ = Type("Type", func() {
+	Attribute("id", Int)
+	Attribute("name", String)
+	// Bad
+	Required("name", "id")
+	// Good
+	Required("id", "name")
+})
+```
+
+
 ### ResultTypeIdentifierNamingConvention
 
 ```go

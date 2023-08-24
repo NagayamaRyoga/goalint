@@ -1,0 +1,20 @@
+
+[TestRule/success/Type - 1]
+
+---
+
+[TestRule/failed/Type - 1]
+Found 1 errors and 0 warnings
+[TypeRequiredOrder]: error in Type("User3"): Required attributes should be in order
+
+---
+
+[TestRule/success/ResultType - 1]
+
+---
+
+[TestRule/failed/ResultType - 1]
+Found 1 errors and 0 warnings
+[TypeRequiredOrder]: error in ResultType("application/vnd.user4"): Required attributes should be in order
+
+---

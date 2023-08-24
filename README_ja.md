@@ -227,6 +227,21 @@ var _ = Type("Type", func() {
 })
 ```
 
+### TypeRequiredOrder
+
+`Type`, `ResultType` の `Required` の定義順が `Attribute` の出現順と一致することを確認するルール
+
+```go
+var _ = Type("Type", func() {
+	Attribute("id", Int)
+	Attribute("name", String)
+	// Bad
+	Required("name", "id")
+	// Good
+	Required("id", "name")
+})
+```
+
 ### ResultTypeIdentifierNamingConvention
 
 `ResultType` のIDに関するルール。

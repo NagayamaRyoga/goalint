@@ -20,6 +20,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_example_exists"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_casing_convention"
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_description_exists"
+	"github.com/NagayamaRyoga/goalint/pkg/rules/type_required_order"
 )
 
 type Config struct {
@@ -39,6 +40,7 @@ type Config struct {
 	TypeAttributeCasingConvention        *type_attribute_casing_convention.Config
 	TypeAttributeDescriptionExists       *type_attribute_description_exists.Config
 	TypeAttributeExampleExists           *type_attribute_example_exists.Config
+	TypeRequiredOrder                    *type_required_order.Config
 	ResultTypeIdentifierNamingConvention *result_type_identifier_naming_convention.Config
 	HTTPPathCasingConvention             *http_path_casing_convention.Config
 	HTTPPathNamingConvention             *http_path_naming_convention.Config
@@ -73,6 +75,7 @@ func NewConfig() *Config {
 		TypeAttributeCasingConvention:        type_attribute_casing_convention.NewConfig(),
 		TypeAttributeDescriptionExists:       type_attribute_description_exists.NewConfig(),
 		TypeAttributeExampleExists:           type_attribute_example_exists.NewConfig(),
+		TypeRequiredOrder:                    type_required_order.NewConfig(),
 		ResultTypeIdentifierNamingConvention: result_type_identifier_naming_convention.NewConfig(),
 		HTTPPathCasingConvention:             http_path_casing_convention.NewConfig(),
 		HTTPPathNamingConvention:             http_path_naming_convention.NewConfig(),
