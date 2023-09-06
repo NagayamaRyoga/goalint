@@ -22,6 +22,12 @@ const (
 
 type Initialisms []string
 
+func (i *Initialisms) Add(s ...string) *Initialisms {
+	*i = append(*i, s...)
+
+	return i
+}
+
 type Caser struct {
 	impl     *strcase.Caser
 	wordCase WordCase

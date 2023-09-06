@@ -15,30 +15,28 @@ import (
 func TestRule(t *testing.T) {
 	t.Parallel()
 
-	var (
-		service = dsl.Service("calc", func() {
-			dsl.Method("good_root", func() {
-				dsl.HTTP(func() {
-					dsl.GET("/")
-				})
-			})
-			dsl.Method("good_nested", func() {
-				dsl.HTTP(func() {
-					dsl.GET("/a/b")
-				})
-			})
-			dsl.Method("bad_empty", func() {
-				dsl.HTTP(func() {
-					dsl.GET("")
-				})
-			})
-			dsl.Method("bad_nested", func() {
-				dsl.HTTP(func() {
-					dsl.GET("a/b")
-				})
+	service := dsl.Service("calc", func() {
+		dsl.Method("good_root", func() {
+			dsl.HTTP(func() {
+				dsl.GET("/")
 			})
 		})
-	)
+		dsl.Method("good_nested", func() {
+			dsl.HTTP(func() {
+				dsl.GET("/a/b")
+			})
+		})
+		dsl.Method("bad_empty", func() {
+			dsl.HTTP(func() {
+				dsl.GET("")
+			})
+		})
+		dsl.Method("bad_nested", func() {
+			dsl.HTTP(func() {
+				dsl.GET("a/b")
+			})
+		})
+	})
 
 	err := eval.RunDSL()
 	assert.NoError(t, err)

@@ -6,6 +6,8 @@ import (
 
 type DataTypeList []expr.DataType
 
-func (dt *DataTypeList) Add(t ...expr.DataType) {
+func (dt *DataTypeList) Add(t ...expr.DataType) *DataTypeList {
 	*dt = append(*dt, t...)
+
+	return dt
 }
