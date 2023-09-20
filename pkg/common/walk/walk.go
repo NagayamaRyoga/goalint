@@ -14,12 +14,10 @@ type (
 
 func Expression(roots []eval.Root, walker ExpressionWalkerFunc) (rl reports.ReportList) {
 	for _, root := range roots {
-		root.WalkSets(func(s eval.ExpressionSet) error {
+		root.WalkSets(func(s eval.ExpressionSet) {
 			for _, e := range s {
 				rl = append(rl, walker(e)...)
 			}
-
-			return nil
 		})
 	}
 
