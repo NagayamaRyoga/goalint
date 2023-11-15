@@ -1,0 +1,14 @@
+
+[TestRule/success/ok_only - 1]
+
+---
+
+[TestRule/failed/no_description - 1]
+Found 1 errors and 0 warnings
+[HTTPErrorDescriptionExists]: error in HTTP error bad_request: Error response "bad_request" should have non-empty description
+
+---
+
+[TestRule/success/error_with_description - 1]
+
+---

@@ -1,4 +1,4 @@
-Found 83 errors and 0 warnings
+Found 104 errors and 0 warnings
 [NoUnnamedMethodPayloadType]: error in service "tus" method "head": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "tus" method "patch": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "tus" method "post": Method payload should be an user defined type
@@ -82,5 +82,26 @@ Found 83 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "tusMaxSize" in Object: Attribute of type Int64 should have examples
 [TypeAttributeExampleExists]: error in attribute "uploadOffset" in Object: Attribute of type Int64 should have examples
 [TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidTusResumable: Error response "InvalidTusResumable" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error NotFound: Error response "NotFound" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error Gone: Error response "Gone" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidTusResumable: Error response "InvalidTusResumable" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidContentType: Error response "InvalidContentType" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidOffset: Error response "InvalidOffset" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error NotFound: Error response "NotFound" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error Gone: Error response "Gone" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidChecksumAlgorithm: Error response "InvalidChecksumAlgorithm" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error ChecksumMismatch: Error response "ChecksumMismatch" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error Internal: Error response "Internal" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidTusResumable: Error response "InvalidTusResumable" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidTusResumable: Error response "InvalidTusResumable" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error MissingHeader: Error response "MissingHeader" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidDeferLength: Error response "InvalidDeferLength" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error MaximumSizeExceeded: Error response "MaximumSizeExceeded" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidChecksumAlgorithm: Error response "InvalidChecksumAlgorithm" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error ChecksumMismatch: Error response "ChecksumMismatch" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error InvalidTusResumable: Error response "InvalidTusResumable" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error NotFound: Error response "NotFound" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error Gone: Error response "Gone" should have non-empty description
 goalint failed
 exit status 1

@@ -1,4 +1,4 @@
-Found 26 errors and 0 warnings
+Found 29 errors and 0 warnings
 [MethodDescriptionExists]: error in service "sommelier" method "pick": Method should have non-empty description
 [MethodArrayResult]: error in service "sommelier" method "pick": Method should not return an array as the top-level structure of a response
 [MethodArrayResult]: error in service "storage" method "list": Method should not return an array as the top-level structure of a response
@@ -25,5 +25,8 @@ Found 26 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "id" in Object: Attribute of type String should have examples
 [TypeAttributeExampleExists]: error in attribute "ids" in Object: Attribute of type ArrayOf(String) should have examples
 [ResultTypeIdentifierNamingConvention]: error in ResultType("winery"): ResultType identifier should have prefix 'application/vnd.'
+[HTTPErrorDescriptionExists]: error in HTTP error no_criteria: Error response "no_criteria" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error no_match: Error response "no_match" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error not_found: Error response "not_found" should have non-empty description
 goalint failed
 exit status 1

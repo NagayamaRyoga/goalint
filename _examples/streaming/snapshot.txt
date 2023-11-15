@@ -1,4 +1,4 @@
-Found 37 errors and 0 warnings
+Found 48 errors and 0 warnings
 [ApiDescriptionExists]: error in API("chatter"): API should have non-empty description
 [MethodArrayResult]: error in service "chatter" method "summary": Method should not return an array as the top-level structure of a response
 [NoUnnamedMethodPayloadType]: error in service "chatter" method "login": Method payload should be an user defined type
@@ -36,5 +36,16 @@ Found 37 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "message" in ResultType("application/vnd.goa.summary"): Attribute of type String should have examples
 [TypeAttributeExampleExists]: error in attribute "length" in ResultType("application/vnd.goa.summary"): Attribute of type Int should have examples
 [TypeAttributeExampleExists]: error in attribute "sent_at" in ResultType("application/vnd.goa.summary"): Attribute of type String should have examples
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
 goalint failed
 exit status 1

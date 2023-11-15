@@ -1,9 +1,14 @@
-Found 6 errors and 0 warnings
+Found 11 errors and 0 warnings
 [APITitleExists]: error in API("upload_download"): API should have non-empty title
 [MethodDescriptionExists]: error in service "updown" method "upload": Method should have non-empty description
 [MethodDescriptionExists]: error in service "updown" method "download": Method should have non-empty description
 [NoUnnamedMethodPayloadType]: error in service "updown" method "upload": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "updown" method "download": Method payload should be an user defined type
 [NoUnnamedMethodResultType]: error in service "updown" method "download": Method result should be an user defined type
+[HTTPErrorDescriptionExists]: error in HTTP error invalid_media_type: Error response "invalid_media_type" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid_multipart_request: Error response "invalid_multipart_request" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error internal_error: Error response "internal_error" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid_file_path: Error response "invalid_file_path" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error internal_error: Error response "internal_error" should have non-empty description
 goalint failed
 exit status 1

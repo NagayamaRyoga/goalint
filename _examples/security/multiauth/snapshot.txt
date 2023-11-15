@@ -1,4 +1,4 @@
-Found 13 errors and 0 warnings
+Found 20 errors and 0 warnings
 [NoUnnamedMethodPayloadType]: error in service "secured_service" method "signin": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "secured_service" method "secure": Method payload should be an user defined type
 [NoUnnamedMethodPayloadType]: error in service "secured_service" method "doubly_secure": Method payload should be an user defined type
@@ -12,5 +12,12 @@ Found 13 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "fail" in Object: Attribute of type Boolean should have examples
 [TypeAttributeExampleExists]: error in attribute "token" in Object: Attribute of type String should have examples
 [TypeAttributeExampleExists]: error in attribute "oauth_token" in Object: Attribute of type String should have examples
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error invalid-scopes: Error response "invalid-scopes" should have non-empty description
+[HTTPErrorDescriptionExists]: error in HTTP error unauthorized: Error response "unauthorized" should have non-empty description
 goalint failed
 exit status 1

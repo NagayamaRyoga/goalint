@@ -212,6 +212,26 @@ var BadResultType = Type("bad-result-type", ...)
 var GoodResultType = Type("application/vnd.good-result-type", ...)
 ```
 
+### HTTPErrorDescriptionExists
+
+```go
+var _ = Service("service", func() {
+	Method("method", func() {
+		HTTP(func() {
+			GET("/")
+            Response(StatusOK)
+			// Bad
+            Response("not_found", StatusNotFound)
+			// Good
+            Response("not_found", StatusNotFound, func() {
+                Description("not found")
+            })
+		})
+	})
+    Error("not_found")
+})
+```
+
 ### HTTPPathCasingConvention
 
 ```go
