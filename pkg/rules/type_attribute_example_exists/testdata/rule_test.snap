@@ -40,3 +40,13 @@ Found 1 errors and 0 warnings
 [TypeAttributeExampleExists]: error in attribute "authors" in Type("Thesis2"): Attribute of type ArrayOf(String) should have examples
 
 ---
+
+[TestRule/success/Array_excluded - 1]
+
+---
+
+[TestRule/failed/Array_of_items_with_examples - 1]
+Found 1 errors and 0 warnings
+[TypeAttributeExampleExists]: error in attribute "authors" in Type("Thesis3"): Attribute of type ArrayOf(String) should have examples
+
+---

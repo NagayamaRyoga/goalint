@@ -10,6 +10,7 @@ type Config struct {
 	Disabled      bool
 	Level         reports.ErrorLevel
 	RequiredTypes types.DataTypeList
+	ExcludeTypes  types.DataTypeList
 }
 
 func NewConfig() *Config {
@@ -30,5 +31,6 @@ func NewConfig() *Config {
 			expr.Bytes,
 			expr.Any,
 		},
+		ExcludeTypes: types.DataTypeList{},
 	}
 }

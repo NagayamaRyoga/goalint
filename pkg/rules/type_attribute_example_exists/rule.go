@@ -63,6 +63,8 @@ func (r *Rule) WalkType(t expr.DataType) (rl reports.ReportList) {
 func (r *Rule) isRequiredExamples(t expr.DataType) bool {
 	if lo.Contains(r.cfg.RequiredTypes, t) {
 		return true
+	} else if lo.Contains(r.cfg.ExcludeTypes, t) {
+		return false
 	}
 
 	if t := expr.AsArray(t); t != nil {

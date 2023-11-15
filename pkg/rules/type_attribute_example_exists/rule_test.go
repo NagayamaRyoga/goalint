@@ -79,6 +79,13 @@ func TestRule(t *testing.T) {
 		arrayTypeWithoutExample = dsl.Type("Thesis2", func() {
 			dsl.Attribute("authors", dsl.ArrayOf(dsl.String))
 		})
+
+		arrayOfStringsWithExample = dsl.ArrayOf(dsl.String, func() {
+			dsl.Example("Alan Smithee")
+		})
+		arrayTypeOfItemsWithExample = dsl.Type("Thesis3", func() {
+			dsl.Attribute("authors", arrayOfStringsWithExample)
+		})
 	)
 
 	// given
@@ -87,48 +94,71 @@ func TestRule(t *testing.T) {
 
 	testCases := []struct {
 		description string
+		cfg         func(cfg *type_attribute_example_exists.Config)
 		dataType    expr.DataType
 		wantReports int
 	}{
 		{
 			description: "success/Type",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    typeWithExample,
 			wantReports: 0,
 		},
 		{
 			description: "success/ResultType",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    resultTypeWithExample,
 			wantReports: 0,
 		},
 		{
 			description: "success/Payload",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    payloadWithExample.Methods[0].Payload.Type,
 			wantReports: 0,
 		},
 		{
 			description: "failed/Type",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    typeWithoutExample,
 			wantReports: 2,
 		},
 		{
 			description: "failed/ResultType",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    resultTypeWithoutExample,
 			wantReports: 1,
 		},
 		{
 			description: "failed/Payload",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    payloadWithoutExample.Methods[0].Payload.Type,
 			wantReports: 2,
 		},
 		{
 			description: "success/Array",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    arrayTypeWithExample,
 			wantReports: 0,
 		},
 		{
 			description: "failed/Array",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
 			dataType:    arrayTypeWithoutExample,
 			wantReports: 1,
+		},
+		{
+			description: "failed/Array of items with examples",
+			cfg:         func(cfg *type_attribute_example_exists.Config) {},
+			dataType:    arrayTypeOfItemsWithExample,
+			wantReports: 1,
+		},
+		{
+			description: "success/Array excluded",
+			cfg: func(cfg *type_attribute_example_exists.Config) {
+				cfg.ExcludeTypes.Add(arrayOfStringsWithExample)
+			},
+			dataType:    arrayTypeOfItemsWithExample,
+			wantReports: 0,
 		},
 	}
 	for _, tc := range testCases {
@@ -140,6 +170,8 @@ func TestRule(t *testing.T) {
 
 			logger := log.New(os.Stdout, "", 0)
 			cfg := type_attribute_example_exists.NewConfig()
+
+			tc.cfg(cfg)
 			rule := type_attribute_example_exists.NewRule(logger, cfg)
 
 			// when
