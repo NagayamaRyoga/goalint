@@ -8,6 +8,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_path_naming_convention"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"goa.design/goa/v3/dsl"
 	"goa.design/goa/v3/eval"
 )
@@ -39,7 +40,7 @@ func TestRule(t *testing.T) {
 	})
 
 	err := eval.RunDSL()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	testCases := []struct {
 		description string
@@ -85,7 +86,7 @@ func TestRule(t *testing.T) {
 
 			// when
 			got := rule.WalkPath(tc.expr, tc.path)
-			assert.Equal(t, tc.wantReports, len(got))
+			assert.Len(t, got, tc.wantReports)
 			snaps.MatchSnapshot(t, got.String())
 		})
 	}

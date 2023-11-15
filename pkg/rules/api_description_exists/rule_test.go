@@ -66,7 +66,7 @@ func TestRule(t *testing.T) {
 
 			// when
 			got := rule.WalkMethodExpr(tc.api)
-			assert.Equal(t, tc.wantReports, len(got))
+			assert.Len(t, got, tc.wantReports)
 			snaps.MatchSnapshot(t, got.String())
 		})
 	}

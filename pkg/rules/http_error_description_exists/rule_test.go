@@ -8,6 +8,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/http_error_description_exists"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"goa.design/goa/v3/dsl"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
@@ -43,12 +44,15 @@ func TestRule(t *testing.T) {
 	})
 
 	err := eval.RunDSL()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	roots, err := eval.Context.Roots()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
-	httpSvc := roots[0].(*expr.RootExpr).HTTPService("calc")
+	root, ok := roots[0].(*expr.RootExpr)
+	require.True(t, ok)
+
+	httpSvc := root.HTTPService("calc")
 
 	testCases := []struct {
 		description string
@@ -83,9 +87,8 @@ func TestRule(t *testing.T) {
 			rule := http_error_description_exists.NewRule(logger, cfg)
 
 			// when
-
 			got := rule.WalkHTTPEndpointExpr(tc.expr)
-			assert.Equal(t, tc.wantReports, len(got))
+			assert.Len(t, got, tc.wantReports)
 			snaps.MatchSnapshot(t, got.String())
 		})
 	}

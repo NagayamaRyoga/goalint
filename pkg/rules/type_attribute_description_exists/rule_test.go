@@ -8,6 +8,7 @@ import (
 	"github.com/NagayamaRyoga/goalint/pkg/rules/type_attribute_description_exists"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"goa.design/goa/v3/dsl"
 	"goa.design/goa/v3/eval"
 	"goa.design/goa/v3/expr"
@@ -67,7 +68,7 @@ func TestRule(t *testing.T) {
 
 	// given
 	err := eval.RunDSL()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	testCases := []struct {
 		description string
@@ -118,7 +119,7 @@ func TestRule(t *testing.T) {
 
 			// when
 			got := rule.WalkType(tc.dataType)
-			assert.Equal(t, tc.wantReports, len(got))
+			assert.Len(t, got, tc.wantReports)
 			snaps.MatchSnapshot(t, got.String())
 		})
 	}
