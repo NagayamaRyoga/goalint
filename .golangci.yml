@@ -12,6 +12,7 @@ linters:
     - interfacebloat
     - ireturn
     - lll
+    - mnd
     - nakedret
     - nestif
     - nonamedreturns
