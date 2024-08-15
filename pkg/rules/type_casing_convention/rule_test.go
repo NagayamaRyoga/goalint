@@ -56,7 +56,6 @@ func TestRule(t *testing.T) {
 		},
 	}
 	for _, tc := range testCases {
-		tc := tc
 		t.Run(tc.description, func(t *testing.T) {
 			t.Parallel()
 
