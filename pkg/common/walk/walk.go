@@ -50,8 +50,8 @@ func Type(roots []eval.Root, walker TypeWalkerFunc) (rl reports.ReportList) {
 	for _, root := range roots {
 		if root, ok := root.(*expr.RootExpr); ok {
 			generatedTypes := make(map[expr.UserType]struct{})
-			if root.GeneratedTypes != nil {
-				for _, gt := range *root.GeneratedTypes {
+			if expr.GeneratedResultTypes != nil {
+				for _, gt := range *expr.GeneratedResultTypes {
 					generatedTypes[gt] = struct{}{}
 				}
 			}
